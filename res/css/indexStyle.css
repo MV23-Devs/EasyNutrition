@@ -53,6 +53,7 @@ tr {
 
 
 .fakeCol {
+    text-align: left;
     margin: 20px;
     align-items: flex-start;
     display: inline-block;    
