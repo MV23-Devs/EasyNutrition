@@ -15,7 +15,6 @@ let foodGroups = {
 };
 
 //let meal = [];
-
 function checkMissing(meal){
     //parameter meal is an array of all items in the meal
     let groupCheck = {
