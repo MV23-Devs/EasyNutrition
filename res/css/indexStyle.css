@@ -29,6 +29,10 @@ body {
     display: inline-block;
 }
 
+.carousel-image {
+    width: 100% !important;
+    max-height: 700px !important;    
+}
 /* central area begins here  */
 
 #centralArea {

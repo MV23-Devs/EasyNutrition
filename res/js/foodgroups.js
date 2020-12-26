@@ -1,8 +1,8 @@
 let proteinItems = ["redMeats", "whiteMeats", "fish", "nuts"];
-let fruitItems = ["berry", "legumes", "drupes"];
-let vegetableItems = ["pepper", "cabbage", "potatoes"];
+let fruitItems = ["berries", "legumes", "drupes"];
+let vegetableItems = ["peppers", "cabbage", "potatoes"];
 let grainItems = ["bread", "pasta", "rice"];
-let dairyItems = ["milk", "cheese", "ogurt"];
+let dairyItems = ["milk", "cheese", "yogurt"];
 
 let foodGroups = {
     "protein": proteinItems,
@@ -38,7 +38,16 @@ myLink.onclick = function () {
     score.vegetables = parseFloat(document.getElementById(String("vegetablesNumber")).value);
     score.fruits = parseFloat(document.getElementById(String("fruitsNumber")).value);
 
-    console.log(score)
+
+    const getMax = object => {
+        return Object.keys(object).filter(x => {
+             return object[x] == Math.min.apply(null, 
+             Object.values(object));
+       });
+    };
+
+
+    console.log(getMax(score))
 
     let result = checkMissing(mealInp);
     $("#needs").empty();
@@ -51,7 +60,7 @@ myLink.onclick = function () {
     if(result.length > 0) {
         document.getElementById("displayText").innerHTML = "You need to include some of the following food groups in your next meal: ";
     } else {
-        document.getElementById("displayText").innerHTML = "Well Done, all the food groups are present in your meal!";
+        document.getElementById("displayText").innerHTML = "Well done, all the food groups are present in your meal!";
     }
     document.getElementById("continueButtonDiv").innerHTML = "<p>Checkout more recipes here:</p><a href='#search'>Continue to Recipes</a>";
     document.getElementById("results").style["display"] = "block";
@@ -75,13 +84,13 @@ allergyButton.onclick = function () {
 function checkMissing(meal) {
     //parameter meal is an array of all items in the meal
     let groupCheck = {
-        "Protein": false,
-        "Fruit": false,
-        "Vegetable": false,
-        "Grain": false,
-        "Dairy": false
+        "protein": false,
+        "fruits": false,
+        "vegetables": false,
+        "grain": false,
+        "dairy": false
     }
-    keys = Object.keys(foodGroups)
+    keys = Object.keys(foodGroups);
     for (let i = 0; i < keys.length; i++) {
         for (let j = 0; j < meal.length; j++) {
             if (foodGroups[keys[i]].includes(meal[j])) {
@@ -89,13 +98,13 @@ function checkMissing(meal) {
             }
         }
     }
+
     let result = []
     for (let i = 0; i < keys.length; i++) {
         if (groupCheck[keys[i]] == false) {
             result.push(keys[i]);
         }
     }
-
     return result;
 }
 
