@@ -147,7 +147,6 @@ let allergies = []
 let allergyButton = document.getElementById("submitAllergySelection");
 
 allergyButton.onclick = function () {
-    console.log("buttonclicked")
     allergies = [];
 
     for (i = 1; i < 9; i++) {
@@ -161,6 +160,19 @@ allergyButton.onclick = function () {
     return false;
 }
 
+let mealtype = "Lunch";
+let mealtypeButton = document.getElementById("mealTypeButton")
+
+
+mealtypeButton.onclick = function () {
+    for (i = 1; i < 4; i++) {
+        if (document.getElementById(String("meal" + i)).checked) {
+            mealtype = document.getElementById(String("meal" + i)).value
+        }
+    }
+    console.log(mealtype)
+    return false;
+}
 
 
 
