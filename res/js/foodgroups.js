@@ -12,6 +12,14 @@ let foodGroups = {
     "Dairy": dairyItems
 };
 
+let score = {
+    "Protein": 0,
+    "Fruit": 0,
+    "Vegetable": 0,
+    "Grain": 0,
+    "Dairy": 0
+};
+
 let myLink = document.getElementById('submitSelection');
 myLink.onclick = function () {
     let mealInp = []
@@ -23,7 +31,15 @@ myLink.onclick = function () {
             }
         }
     }
-    console.log(mealInp)
+    let groupvalues = [];
+
+    for(let i = 0; i < groups.length; i++) {
+        groupvalues.push(
+            $("#" + String(groups[i])).val()
+        )
+    }
+
+    console.log(groupvalues)
     let result = checkMissing(mealInp);
     $("#needs").empty();
     for (let i = 0; i < result.length; i++) {
