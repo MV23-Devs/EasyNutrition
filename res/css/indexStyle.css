@@ -34,6 +34,16 @@ body {
 #centralArea {
 }
 
+
+
+#allergySelector {
+    width: 150px;
+    margin-left: 20%;
+    float: right;
+    padding: 25px;
+    
+}
+
 /* central card in the selectoin area  */
 .mediumCard {
     padding: 50px;
@@ -62,6 +72,8 @@ body {
 .numberInputs {
     width: 75px;
 }
+
+
 
 #results {
     display: none;

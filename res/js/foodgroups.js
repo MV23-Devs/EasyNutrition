@@ -58,6 +58,18 @@ myLink.onclick = function () {
     return false;
 }
 
+let allergies = []
+
+
+allergyButton = document.getElementById(submitAllergySelection);
+
+allergyButton.onclick = function () {
+    
+}
+
+
+
+
 //function takes in an array of items in meal and returns a string message with all the missing groups
 //need to fetch data from form and then take string output and display it
 function checkMissing(meal) {
