@@ -5,8 +5,8 @@ let result = "protein"
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
 searchButton.addEventListener("click", ()=>{
     console.log("button pressed")
+    console.log(getDiet(score));
     sendApiRequest()
-    console.log(score)
 })
 
 
@@ -21,6 +21,14 @@ async function sendApiRequest(){
     let data = await response.json()
     console.log(data)
     useApiData(data)
+}
+
+function getDiet(score) {
+    let diet = "balanced";
+
+
+
+    return diet;
 }
 
 
