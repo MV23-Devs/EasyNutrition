@@ -35,8 +35,8 @@ myLink.onclick = function () {
 
     for(let i = 0; i < groups.length; i++) {
         groupvalues.push(
-            $("#" + String(groups[i])).val()
-        )
+            parseFloat(document.getElementById(String(groups[i] + "Number")).value)
+            )
     }
 
     console.log(groupvalues)
