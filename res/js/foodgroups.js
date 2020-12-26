@@ -37,7 +37,7 @@ myLink.onclick = function () {
     } else {
         document.getElementById("displayText").innerHTML = "Well Done, all the food groups are present in your meal!";
     }
-    document.getElementById("continueButtonDiv").innerHTML = "<p>Checkout more recipes here:</p><a href='recipes.html'>Continue to Recipes</a>";
+    document.getElementById("continueButtonDiv").innerHTML = "<p>Checkout more recipes here:</p><a href='#search'>Continue to Recipes</a>";
     document.getElementById("results").style["display"] = "block";
     return false;
 }
