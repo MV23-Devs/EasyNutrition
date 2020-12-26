@@ -5,19 +5,19 @@ let grainItems = ["bread", "pasta", "rice"];
 let dairyItems = ["milk", "cheese", "ogurt"];
 
 let foodGroups = {
-    "Protein": proteinItems,
-    "Fruit": fruitItems,
-    "Vegetable": vegetableItems,
-    "Grain": grainItems,
-    "Dairy": dairyItems
+    "protein": proteinItems,
+    "grain": grainItems,
+    "dairy": dairyItems,
+    "vegetables": vegetableItems,
+    "fruits": fruitItems
 };
 
 let score = {
-    "Protein": 0,
-    "Fruit": 0,
-    "Vegetable": 0,
-    "Grain": 0,
-    "Dairy": 0
+    "protein": 0,
+    "grain": 0,
+    "dairy": 0,
+    "vegetables": 0,
+    "fruits": 0
 };
 
 let myLink = document.getElementById('submitSelection');
@@ -31,15 +31,15 @@ myLink.onclick = function () {
             }
         }
     }
-    let groupvalues = [];
+    
+    score.protein = parseFloat(document.getElementById(String("proteinNumber")).value);
+    score.grain = parseFloat(document.getElementById(String("grainNumber")).value);
+    score.dairy = parseFloat(document.getElementById(String("dairyNumber")).value);
+    score.vegetables = parseFloat(document.getElementById(String("vegetablesNumber")).value);
+    score.fruits = parseFloat(document.getElementById(String("fruitsNumber")).value);
 
-    for(let i = 0; i < groups.length; i++) {
-        groupvalues.push(
-            parseFloat(document.getElementById(String(groups[i] + "Number")).value)
-            )
-    }
+    console.log(score)
 
-    console.log(groupvalues)
     let result = checkMissing(mealInp);
     $("#needs").empty();
     for (let i = 0; i < result.length; i++) {
