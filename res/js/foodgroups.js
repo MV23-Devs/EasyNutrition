@@ -76,7 +76,7 @@ allergyButton.onclick = function () {
     console.log("buttonclicked")
     allergies = [];
 
-    for (i = 1; i < 4; i++) {
+    for (i = 1; i < 7; i++) {
 
         if (document.getElementById(String("allergy" + i)).checked) {
             allergies.push(document.getElementById(String("allergy" + i)).value);
