@@ -7,7 +7,6 @@ html {
 
 body {
     background-color: white;
-    background-image: url("res/images/foodBackground.jpg");
 
     margin: 0px;
 }
@@ -62,6 +61,10 @@ body {
     align-items: flex-start;
     display: inline-block;    
     line-height: 20px;
+}
+
+.numberInputs {
+    width: 75px;
 }
 
 #results {
