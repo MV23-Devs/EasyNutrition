@@ -6,6 +6,7 @@ let result = "protein"
 searchButton.addEventListener("click", ()=>{
     console.log("button pressed")
     sendApiRequest()
+    console.log(score)
 })
 
 
