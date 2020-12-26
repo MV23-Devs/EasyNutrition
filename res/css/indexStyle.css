@@ -12,9 +12,6 @@ body {
     margin: 0px;
 }
 
-tr {
-    width: 100%;
-}
 
 /* body begins here */
 
@@ -38,7 +35,7 @@ tr {
 #centralArea {
 }
 
-
+/* central card in the selectoin area  */
 .mediumCard {
     padding: 50px;
     text-align: center;
@@ -53,7 +50,7 @@ tr {
     background-color: #00000055;
 }
 
-
+/* "coloumns" in the card  */
 .fakeCol {
     text-align: left;
     margin: 20px;
@@ -68,7 +65,7 @@ tr {
 
 
 
-
+/* just the footer  */
 
 footer {
     color: white;
