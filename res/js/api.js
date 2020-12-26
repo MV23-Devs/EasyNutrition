@@ -4,7 +4,6 @@ let result = "protein"
 
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
 searchButton.addEventListener("click", ()=>{
-    console.log("button pressed")
     console.log(getDiet(score));
     sendApiRequest()
 })
@@ -20,6 +19,10 @@ async function sendApiRequest(){
     for(let i = 0; i < allergies.length; i++) {
         url += "&Health=" + allergies[i]
     }
+
+    url += "&mealtype=" + mealtype;
+
+    console.log(url)
 
     let response = await fetch(url);
     // &diet=${userDiet}
