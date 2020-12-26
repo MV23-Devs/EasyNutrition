@@ -50,7 +50,6 @@ myLink.onclick = function () {
     console.log(getMax(score))
 
     let result = checkMissing(mealInp);
-    console.log(result)
     $("#needs").empty();
     for (let i = 0; i < result.length; i++) {
         let ul = document.getElementById("needs");
@@ -70,7 +69,6 @@ myLink.onclick = function () {
 
 function checkMissing(meal) {
     //parameter meal is an array of all items in the meal
-    console.log('mealInp: ' + meal);
     let groupCheck = {
         "protein": false,
         "fruits": false,
@@ -86,12 +84,10 @@ function checkMissing(meal) {
             }
         }
     }
-    console.log(JSON.stringify(groupCheck, null, 4));
+
     let result = []
-    console.log("lenkeys: " + keys.length)
     for (let i = 0; i < keys.length; i++) {
         if (groupCheck[keys[i]] == false) {
-            console.log(keys[i] + ": false")
             result.push(keys[i]);
         }
     }
