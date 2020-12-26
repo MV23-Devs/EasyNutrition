@@ -60,6 +60,10 @@ body {
     line-height: 20px;
 }
 
+.numberInputs {
+    width: 75px;
+}
+
 #results {
     display: none;
 }

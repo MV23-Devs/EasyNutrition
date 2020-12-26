@@ -12,7 +12,9 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <!-- import the webpage's javascript file -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
     <script src="res/js/api.js" defer></script>
 </head>
 
@@ -58,6 +60,11 @@
                         <input type="radio" name="protein" id="protein3" value="fish" />
                         Fish</label>
                     <br>
+                    <br>
+                    <input type="number" id="proteinNumber" class="numberInputs">
+                    <p class="units">ounces</p>
+
+
                 </div>
 
                 <div class="fakeCol">
@@ -75,6 +82,11 @@
                         <input type="radio" name="grain" id="grain3" value="rice">
                         Rice</label>
                     <br>
+                    <br>
+                    <input type="number" id="grainNumber" class="numberInputs">
+                    <p class="units">ounces</p>
+
+
                 </div>
                 <div class="fakeCol">
                     <h3>Dairy</h3>
@@ -93,6 +105,11 @@
                         <input type="radio" name="dairy" id="dairy3" value="yogurt" />
                         Yogurt</label>
                     <br>
+                    <br>
+                    <input type="number" id="dairyNumber" class="numberInputs">
+                    <p class="units">ounces</p>
+
+
                 </div>
                 <div class="fakeCol">
                     <h3>Fruits</h3>
@@ -111,6 +128,10 @@
                         <input type="radio" name="fruits" id="fruits3" value="drupes" />
                         Drupes</label>
                     <br>
+                    <br>
+                    <input type="number" id="fruitNumber" class="numberInputs">
+                    <p class="units">ounces</p>
+
                 </div>
                 <div class="fakeCol">
                     <h3>Vegetables</h3>
@@ -127,6 +148,10 @@
                         <input type="radio" name="vegetables" id="vegetables3" value="potatoes">
                         Potatoes</label>
                     <br>
+                    <br>
+                    <input type="number" id="vegetablesNumber" class="numberInputs">
+                    <p class="units">ounces</p>
+
                 </div>
                 <button id="submitSelection">Submit</button>
             </form>
@@ -147,15 +172,16 @@
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="container carousel-item active">
-                <img src="https://static01.nyt.com/images/2020/03/03/well/physed-foods/physed-foods-mediumSquareAt3X.jpg" id="bigBackgroundStuff" class="d-block w-100" alt="...">
-                <button type="button" class="btn btn-light" id="search">Find Your Next Meal (emoji?)</button>
+                    <img src="https://static01.nyt.com/images/2020/03/03/well/physed-foods/physed-foods-mediumSquareAt3X.jpg"
+                        id="bigBackgroundStuff" class="d-block w-100" alt="...">
+                    <button type="button" class="btn btn-light" id="search">Find Your Next Meal (emoji?)</button>
                 </div>
             </div>
             <br />
             <br />
-            </div>
-            <div id="content">      
-            </div>
+        </div>
+        <div id="content">
+        </div>
     </div>
     <script src="res/js/foodgroups.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
