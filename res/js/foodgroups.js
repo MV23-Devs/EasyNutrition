@@ -76,10 +76,10 @@ allergyButton.onclick = function () {
     console.log("buttonclicked")
     allergies = [];
 
-    for (i = 1; i < 11; i++) {
+    for (i = 1; i < 9; i++) {
 
         if (document.getElementById(String("allergy" + i)).checked) {
-            allergies.push(document.getElementById(String("allergy" + i)).value);
+            allergies.push((document.getElementById(String("allergy" + i)).value).toLowerCase());
         }
     }
 
@@ -119,6 +119,8 @@ function checkMissing(meal) {
     }
     return result;
 }
+
+
 
 //let mealEx = ["Meat", "Pepper", "Bread", "Milk", "Cheese"];
 //console.log(checkMissing(mealEx));
