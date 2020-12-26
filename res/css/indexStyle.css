@@ -48,6 +48,11 @@ body {
     
 }
 
+.textField{
+    width: 200px;
+    height: 150px;
+}
+
 /* central card in the selectoin area  */
 .mediumCard {
     padding: 50px;
