@@ -75,10 +75,14 @@ footer {
 
 
 .card {
-    display: inline-block;
+    display: inline-block !important;
     width: 24% !important;
-    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
 }
+
+
+
 .container {
     position: relative;
     width: 100%;
