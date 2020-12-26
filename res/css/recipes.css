@@ -32,3 +32,8 @@
   .container .btn:hover {
     background-color: black;
   }
+
+
+  #bigBackgroundStuff {
+    width: 100% !important;
+  }
