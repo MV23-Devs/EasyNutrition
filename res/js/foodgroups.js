@@ -31,7 +31,7 @@ myLink.onclick = function () {
             }
         }
     }
-    
+
     score.protein = parseFloat(document.getElementById(String("proteinNumber")).value);
     score.grain = parseFloat(document.getElementById(String("grainNumber")).value);
     score.dairy = parseFloat(document.getElementById(String("dairyNumber")).value);
@@ -41,9 +41,9 @@ myLink.onclick = function () {
 
     const getMax = object => {
         return Object.keys(object).filter(x => {
-             return object[x] == Math.min.apply(null, 
-             Object.values(object));
-       });
+            return object[x] == Math.min.apply(null,
+                Object.values(object));
+        });
     };
 
 
@@ -57,7 +57,7 @@ myLink.onclick = function () {
         li.appendChild(document.createTextNode(result[i]));
         ul.appendChild(li);
     }
-    if(result.length > 0) {
+    if (result.length > 0) {
         document.getElementById("displayText").innerHTML = "You need to include some of the following food groups in your next meal: ";
     } else {
         document.getElementById("displayText").innerHTML = "Well done, all the food groups are present in your meal!";
@@ -70,11 +70,23 @@ myLink.onclick = function () {
 let allergies = []
 
 
-allergyButton = document.getElementById(submitAllergySelection);
+let allergyButton = document.getElementById("submitAllergySelection");
 
 allergyButton.onclick = function () {
-    
+    console.log("buttonclicked")
+    allergies = [];
+
+    for (i = 1; i < 4; i++) {
+
+        if (document.getElementById(String("allergy" + i)).checked) {
+            allergies.push(document.getElementById(String("allergy" + i)).value);
+        }
+    }
+
+    console.log("Allergies = " + allergies);
+    return false;
 }
+
 
 
 

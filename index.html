@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="res/css/indexStyle.css">
     <link rel="icon" href="res/images/LogoFavicon.png" type="image/gif" sizes="64x64">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <!-- import the webpage's javascript file -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
@@ -38,228 +43,237 @@
         </div>
     </nav>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-    </ol>
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
-        <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
-        <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460640004-fish-stick-tacosl1.jpg" class="carousel-image d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-            <h1>EasyNutrition</h1>
-            <h3>Your Customized Meal Planner</h3>
-        </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-        <img src="https://www.zonediet.com/uploads/pyramid-1.jpg" class="carousel-image d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-            <h1>Maintaining Balance</h1>
-            <h3>Get Your Needed Nutrients Daily</h3>
-        </div>
-        </div>
-        <div class="carousel-item">
-        <img src="..." class="carousel-image d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-        </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </a>
-    </div>    
-
-    
-
-
-    <div id="centralArea">
-
-        <div id="tableContainer" class="mediumCard">
-            <h1>Meal Breakdown:</h1>
-            <hr>
-            <form id="mealSelection">
-                <div class="fakeCol">
-                    <h3>Proteins</h3>
-                    <!-- meats  -->
-                    <label for="protein1">
-                        <input type="radio" name="protein" id="protein1" value="whiteMeats">
-                        White meat</label>
-                    <br>
-
-                    <label for="protein2">
-                        <input type="radio" name="protein" id="protein2" value="redMeats">
-                        Red meat</label>
-                    <br>
-
-                    <label for="protein3">
-                        <input type="radio" name="protein" id="protein3" value="fish" />
-                        Fish</label>
-                    <br>
-                    <br>
-                    <input type="number" id="proteinNumber" class="numberInputs">
-                    <p class="units">ounces</p>
-
-
-                </div>
-
-                <div class="fakeCol">
-                    <h3>Grains</h3>
-                    <!-- grains  -->
-                    <label for="grain1">
-                        <input type="radio" name="grain" id="grain1" value="bread">
-                        Bread</label>
-                    <br>
-                    <label for="grain2">
-                        <input type="radio" name="grain" id="grain2" value="pasta">
-                        Pasta</label>
-                    <br>
-                    <label for="grain3">
-                        <input type="radio" name="grain" id="grain3" value="rice">
-                        Rice</label>
-                    <br>
-                    <br>
-                    <input type="number" id="grainNumber" class="numberInputs">
-                    <p class="units">ounces</p>
-
-
-                </div>
-                <div class="fakeCol">
-                    <h3>Dairy</h3>
-                    <!-- dairy  -->
-                    <label for="dairy1">
-                        <input type="radio" name="dairy" id="dairy1" value="milk">
-                        Milk</label>
-                    <br>
-
-                    <label for="dairy2">
-                        <input type="radio" name="dairy" id="dairy2" value="cheese">
-                        Cheese</label>
-                    <br>
-
-                    <label for="dairy3">
-                        <input type="radio" name="dairy" id="dairy3" value="yogurt" />
-                        Yogurt</label>
-                    <br>
-                    <br>
-                    <input type="number" id="dairyNumber" class="numberInputs">
-                    <p class="units">ounces</p>
-
-
-                </div>
-                <div class="fakeCol">
-                    <h3>Fruits</h3>
-                    <!-- fruits  -->
-                    <label for="fruits1">
-                        <input type="radio" name="fruits" id="fruits1" value="berries">
-                        Berries</label>
-                    <br>
-
-                    <label for="fruit2">
-                        <input type="radio" name="fruits" id="fruits2" value="legumes">
-                        Legumes(Beans)</label>
-                    <br>
-
-                    <label for="fruit3">
-                        <input type="radio" name="fruits" id="fruits3" value="drupes" />
-                        Drupes</label>
-                    <br>
-                    <br>
-                    <input type="number" id="fruitsNumber" class="numberInputs">
-                    <p class="units">ounces</p>
-
-                </div>
-                <div class="fakeCol">
-                    <h3>Vegetables</h3>
-                    <!-- vegetables  -->
-                    <label for="vegetables1">
-                        <input type="radio" name="vegetables" id="vegetables1" value="peppers">
-                        Peppers</label>
-                    <br>
-                    <label for="vegetables2">
-                        <input type="radio" name="vegetables" id="vegetables2" value="cabbage">
-                        Cabbage</label>
-                    <br>
-                    <label for="vegetables3">
-                        <input type="radio" name="vegetables" id="vegetables3" value="potatoes">
-                        Potatoes</label>
-                    <br>
-                    <br>
-                    <input type="number" id="vegetablesNumber" class="numberInputs">
-                    <p class="units">ounces</p>
-
-                </div>
-                <button id="submitSelection">Submit</button>
-            </form>
-            <div id="results">
-                <hr>
-                <h3 id="displayText"></h3>
-                <ul id="needs">
-
-                </ul>
-                <span id="continueButtonDiv"></span>
-            </div>
-        </div>
-
-
-        <div id = "allergySelector" class="mediumCard">  
-            <form id="allergySelection">
-                <div class="fakeCol">
-                    <h3>Allergies</h3>
-                    <!-- meats  -->
-                    <label for="allergy1">
-                        <input type="radio" name="allergy" id="allergy1" value="dairy">
-                        Dairy</label>
-                    <br>
-    
-                    <label for="allergy2">
-                        <input type="radio" name="allergy" id="allergy2" value="meat">
-                        Meat</label>
-                    <br>
-    
-                    <label for="allergy2">
-                        <input type="radio" name="allergy" id="allergy3" value="fish" />
-                        Fish</label>
-                    <br>
-    
-    
-                </div>
-                <button id="submitAllergySelection">Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="recipes">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+        </ol>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+            </ol>
             <div class="carousel-inner">
-                <div class="container carousel-item active">
-                    <img src="https://static01.nyt.com/images/2020/03/03/well/physed-foods/physed-foods-mediumSquareAt3X.jpg"
-                        id="bigBackgroundStuff" class="d-block w-100" alt="...">
-                    <button type="button" class="btn btn-light" id="search">Find Your Next Meal (emoji?)</button>
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460640004-fish-stick-tacosl1.jpg"
+                        class="carousel-image d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>EasyNutrition</h1>
+                        <h3>Your Customized Meal Planner</h3>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="https://www.zonediet.com/uploads/pyramid-1.jpg" class="carousel-image d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Maintaining Balance</h1>
+                        <h3>Get Your Needed Nutrients Daily</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <!-- <img src="..." class="carousel-image d-block w-100" alt="..."> -->
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </div>
                 </div>
             </div>
-            <br />
-            <br />
+            <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
-        <div id="content">
+
+
+
+
+        <div id="centralArea">
+
+
+            <div id="allergySelector" class="mediumCard">
+                <form id="allergySelection">
+                    <div class="fakeCol">
+                        <h3>Allergies</h3>
+                        <!-- meats  -->
+                        <label for="allergy1">
+                            <input type="checkbox" name="allergy" id="allergy1" value="dairy">
+                            Dairy</label>
+                        <br>
+
+                        <label for="allergy2">
+                            <input type="checkbox" name="allergy" id="allergy2" value="meat">
+                            Meat</label>
+                        <br>
+
+                        <label for="allergy3">
+                            <input type="checkbox" name="allergy" id="allergy3" value="fish" />
+                            Fish</label>
+                        <br>
+
+
+                    </div>
+                    <button id="submitAllergySelection">Submit</button>
+                </form>
+            </div>
+
+            <div id="tableContainer" class="mediumCard">
+                <h1>Meal Breakdown:</h1>
+                <hr>
+                <form id="mealSelection">
+                    <div class="fakeCol">
+                        <h3>Proteins</h3>
+                        <!-- meats  -->
+                        <label for="protein1">
+                            <input type="radio" name="protein" id="protein1" value="whiteMeats">
+                            White meat</label>
+                        <br>
+
+                        <label for="protein2">
+                            <input type="radio" name="protein" id="protein2" value="redMeats">
+                            Red meat</label>
+                        <br>
+
+                        <label for="protein3">
+                            <input type="radio" name="protein" id="protein3" value="fish" />
+                            Fish</label>
+                        <br>
+                        <br>
+                        <input type="number" id="proteinNumber" class="numberInputs">
+                        <p class="units">ounces</p>
+
+
+                    </div>
+
+                    <div class="fakeCol">
+                        <h3>Grains</h3>
+                        <!-- grains  -->
+                        <label for="grain1">
+                            <input type="radio" name="grain" id="grain1" value="bread">
+                            Bread</label>
+                        <br>
+                        <label for="grain2">
+                            <input type="radio" name="grain" id="grain2" value="pasta">
+                            Pasta</label>
+                        <br>
+                        <label for="grain3">
+                            <input type="radio" name="grain" id="grain3" value="rice">
+                            Rice</label>
+                        <br>
+                        <br>
+                        <input type="number" id="grainNumber" class="numberInputs">
+                        <p class="units">ounces</p>
+
+
+                    </div>
+                    <div class="fakeCol">
+                        <h3>Dairy</h3>
+                        <!-- dairy  -->
+                        <label for="dairy1">
+                            <input type="radio" name="dairy" id="dairy1" value="milk">
+                            Milk</label>
+                        <br>
+
+                        <label for="dairy2">
+                            <input type="radio" name="dairy" id="dairy2" value="cheese">
+                            Cheese</label>
+                        <br>
+
+                        <label for="dairy3">
+                            <input type="radio" name="dairy" id="dairy3" value="yogurt" />
+                            Yogurt</label>
+                        <br>
+                        <br>
+                        <input type="number" id="dairyNumber" class="numberInputs">
+                        <p class="units">ounces</p>
+
+
+                    </div>
+                    <div class="fakeCol">
+                        <h3>Fruits</h3>
+                        <!-- fruits  -->
+                        <label for="fruits1">
+                            <input type="radio" name="fruits" id="fruits1" value="berries">
+                            Berries</label>
+                        <br>
+
+                        <label for="fruit2">
+                            <input type="radio" name="fruits" id="fruits2" value="legumes">
+                            Legumes(Beans)</label>
+                        <br>
+
+                        <label for="fruit3">
+                            <input type="radio" name="fruits" id="fruits3" value="drupes" />
+                            Drupes</label>
+                        <br>
+                        <br>
+                        <input type="number" id="fruitsNumber" class="numberInputs">
+                        <p class="units">ounces</p>
+
+                    </div>
+                    <div class="fakeCol">
+                        <h3>Vegetables</h3>
+                        <!-- vegetables  -->
+                        <label for="vegetables1">
+                            <input type="radio" name="vegetables" id="vegetables1" value="peppers">
+                            Peppers</label>
+                        <br>
+                        <label for="vegetables2">
+                            <input type="radio" name="vegetables" id="vegetables2" value="cabbage">
+                            Cabbage</label>
+                        <br>
+                        <label for="vegetables3">
+                            <input type="radio" name="vegetables" id="vegetables3" value="potatoes">
+                            Potatoes</label>
+                        <br>
+                        <br>
+                        <input type="number" id="vegetablesNumber" class="numberInputs">
+                        <p class="units">ounces</p>
+
+                    </div>
+                    <button id="submitSelection">Submit</button>
+                </form>
+                <div id="results">
+                    <hr>
+                    <h3 id="displayText"></h3>
+                    <ul id="needs">
+
+                    </ul>
+                    <span id="continueButtonDiv"></span>
+                </div>
+
+
+
+                
+            </div>
+
+
+
         </div>
-    </div>
-    <script src="res/js/foodgroups.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+        <hr>
+
+        <div class="recipes">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="container carousel-item active">
+                        <img src="https://static01.nyt.com/images/2020/03/03/well/physed-foods/physed-foods-mediumSquareAt3X.jpg"
+                            id="bigBackgroundStuff" class="d-block w-100" alt="...">
+                        <button type="button" class="btn btn-light" id="search">Find Your Next Meal (emoji?)</button>
+                    </div>
+                </div>
+                <br />
+                <br />
+            </div>
+            <div id="content">
+            </div>
+        </div>
+        <script src="res/js/foodgroups.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 
 </html>
