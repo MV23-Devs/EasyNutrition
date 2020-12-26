@@ -21,23 +21,22 @@
 
         <div id="tableContainer" class="mediumCard">
             <h1>Meal 1</h1>
-            <form>
-
+            <form id="mealSelection">
                 <div class="fakeCol">
-                    <h3>Meats</h3>
+                    <h3>Proteins</h3>
                     <!-- meats  -->
-                    <label for="meat1">
-                        <input type="radio" name="meat" id="meat1" value="whiteMeats">
+                    <label for="protein1">
+                        <input type="radio" name="protein" id="protein1" value="whiteMeats">
                         White meat</label>
                     <br>
 
-                    <label for="meat2">
-                        <input type="radio" name="meat" id="meat2" value="redMeats">
+                    <label for="protein2">
+                        <input type="radio" name="protein" id="protein2" value="redMeats">
                         Red meat</label>
                     <br>
 
-                    <label for="meat3">
-                        <input type="radio" name="meat" id="meat3" value="fish" />
+                    <label for="protein3">
+                        <input type="radio" name="protein" id="protein3" value="fish" />
                         Fish</label>
                     <br>
                 </div>
@@ -58,13 +57,16 @@
                         Rice</label>
                     <br>
                 </div>
-
+                <button id="submitSelection">Submit</button>
             </form>
-
         </div>
 
+        <h3 id="displayText"></h3>
+        <div id="continueButtonDiv">
+        </div>
 
     </div>
+    <script src="res/js/foodgroups.js"></script>
 </body>
 
 <footer>
