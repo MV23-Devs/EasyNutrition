@@ -1,0 +1,9 @@
+.card {
+    display: inline-block;
+    width: 24% !important;
+    height: 500px !important;
+}
+
+.btn-light {
+    width: 100% !important;
+}
