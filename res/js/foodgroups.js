@@ -38,7 +38,16 @@ myLink.onclick = function () {
     score.vegetables = parseFloat(document.getElementById(String("vegetablesNumber")).value);
     score.fruits = parseFloat(document.getElementById(String("fruitsNumber")).value);
 
-    console.log(score)
+
+    const getMax = object => {
+        return Object.keys(object).filter(x => {
+             return object[x] == Math.min.apply(null, 
+             Object.values(object));
+       });
+    };
+
+
+    console.log(getMax(score))
 
     let result = checkMissing(mealInp);
     $("#needs").empty();
