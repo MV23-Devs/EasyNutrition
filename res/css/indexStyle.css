@@ -6,6 +6,9 @@ html {
 }
 
 body {
+    background-color: white;
+    background-image: url("res/images/foodBackground.jpg");
+
     margin: 0px;
 }
 
@@ -33,7 +36,6 @@ tr {
 /* central area begins here  */
 
 #centralArea {
-
 }
 
 
@@ -53,6 +55,7 @@ tr {
 
 
 .fakeCol {
+    text-align: left;
     margin: 20px;
     align-items: flex-start;
     display: inline-block;    
