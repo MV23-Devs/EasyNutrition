@@ -87,6 +87,8 @@ allergyButton.onclick = function () {
     return false;
 }
 
+let mealtype = "lunch";
+let mealtypeButton = document.getElementById("")
 
 
 
