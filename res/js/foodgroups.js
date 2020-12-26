@@ -1,8 +1,8 @@
 let proteinItems = ["redMeats", "whiteMeats", "fish", "nuts"];
-let fruitItems = ["Berry"];
-let vegetableItems = ["Pepper"];
+let fruitItems = ["berry", "legumes", "drupes"];
+let vegetableItems = ["pepper", "cabbage", "potatoes"];
 let grainItems = ["bread", "pasta", "rice"];
-let dairyItems = ["Milk", "Cheese"];
+let dairyItems = ["milk", "cheese", "ogurt"];
 
 let foodGroups = {
     "Protein": proteinItems, 
@@ -15,7 +15,7 @@ let foodGroups = {
 let myLink = document.getElementById('submitSelection');
 myLink.onclick = function(){
     let mealInp = []
-    let groups = ["protein", "grain"]
+    let groups = ["protein", "grain", "dairy", "vegetables", "fruits"]
     for(let i=0; i < groups.length; i++){
         for(let j=1; j < 4; j++){
             if(document.getElementById(String(groups[i]) + String(j)).checked){
@@ -23,10 +23,10 @@ myLink.onclick = function(){
             }
         }
     }
+    console.log(mealInp)
     let displayMessage = checkMissing(mealInp);
-    console.log(displayMessage);
     document.getElementById("displayText").innerHTML = displayMessage;
-    document.getElementById("continueButtonDiv").innerHTML = "<button id='continueButton'><a href='recipes.html'>Continue to Recipes</a></button>";
+    document.getElementById("continueButtonDiv").innerHTML = "<p>Checkout more recipes here:</p><a href='recipes.html'>Continue to Recipes</a>";
     return false;
 }
 
@@ -49,11 +49,16 @@ function checkMissing(meal){
             }
         }
     }
+    let counter = 0;
     let message = "You need to include some of the following food groups in your next meal: "
     for(let i = 0; i < keys.length; i++){
         if(groupCheck[keys[i]] == false){
             message += keys[i] + " ";
+            counter++;
         }
+    }
+    if(counter == 0) {
+        message = "Well Done, all the food groups are present in your meal!"
     }
     return message;
 }
