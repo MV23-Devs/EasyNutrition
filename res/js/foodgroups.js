@@ -1,5 +1,5 @@
 let proteinItems = ["redMeats", "whiteMeats", "fish", "nuts"];
-let fruitItems = ["berry", "legumes", "drupes"];
+let fruitItems = ["berries", "legumes", "drupes"];
 let vegetableItems = ["peppers", "cabbage", "potatoes"];
 let grainItems = ["bread", "pasta", "rice"];
 let dairyItems = ["milk", "cheese", "yogurt"];
