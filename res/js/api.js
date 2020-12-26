@@ -25,6 +25,7 @@ async function sendApiRequest(){
 
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function useApiData(data){
+    document.getElementById("content").style["display"] = "block";
     document.querySelector("#content").innerHTML = `
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="...">

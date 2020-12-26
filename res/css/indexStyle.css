@@ -43,7 +43,7 @@ body {
 #allergySelector {
     width: 150px;
     margin-left: 20%;
-    float: right;
+    /* float: right; */
     padding: 25px;
     
 }
@@ -131,7 +131,22 @@ footer {
     background-color: black;
   }
 
+  .btn-block {
+      width: 100%;
+  }
 
-  #bigBackgroundStuff {
-    width: 100% !important;
+  .green {
+      background-color: #009c36;
+      padding: 20px;
+      font-size: 30px;
+      color: white;
+      border: none;
+  }
+
+  .green:hover {
+      background-color: #008c26;
+  }
+
+  #content {
+      display: none;
   }

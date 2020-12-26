@@ -70,7 +70,7 @@ myLink.onclick = function () {
 let allergies = []
 
 
-allergyButton = document.getElementById(submitAllergySelection);
+allergyButton = document.getElementById("submitAllergySelection");
 
 allergyButton.onclick = function () {
     
