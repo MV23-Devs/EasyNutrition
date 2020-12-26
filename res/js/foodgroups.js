@@ -37,3 +37,5 @@ function checkMissing(meal){
 
 //let mealEx = ["Meat", "Berry", "Pepper", "Bread", "Milk", "Cheese"];
 //console.log(checkMissing(mealEx));
+
+console.log(document.getElementById("mealSelector"));
