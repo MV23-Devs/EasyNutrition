@@ -56,19 +56,6 @@ body {
 }
 /* central area begins here  */
 
-#centralArea {
-}
-
-
-
-#allergySelector {
-    /* width: 150px; */
-    margin-left: 20%;
-    /* float: right; */
-    padding: 25px;
-    
-}
-
 .textField{
     width: 60%;
     min-height: 175px;
@@ -168,17 +155,14 @@ footer {
 }
 
 #mealSelector {
-    margin: 0px !important;
-    margin-left: 20% !important;
+    margin: auto !important;
+    /* margin-left: 20% !important; */
     min-width: 20%;
 
     width: 30%;
-    float: left;
-    border-top-right-radius: 0px;
+    /* float: left; */
     
-    border-bottom-right-radius: 0px;
-    
-    height: 400px;
+    /* height: 400px; */
 
 
     border-left: 1px white solid !important;
@@ -203,6 +187,10 @@ footer {
     /* border-right: 1px white solid !important; */
 
 
+}
+
+.settings {
+    
 }
 
 

@@ -20,7 +20,7 @@ let score = {
     "fruits": 0
 };
 
-let num_items = 20;
+let num_items = 12;
 
 $("#numberItems").change(() => {
     num_items = $("#numberItems").val()
@@ -110,35 +110,24 @@ function useIngredientApiData(data){
 
 
 
-let allergies = []
+// let allergies = []
 
 
-let allergyButton = document.getElementById("submitAllergySelection");
+// let allergyButton = document.getElementById("submitAllergySelection");
 
-allergyButton.onclick = function () {
-    allergies = [];
+// allergyButton.onclick = function () {
+//     allergies = [];
 
-    for (i = 1; i < 9; i++) {
+//     for (i = 1; i < 9; i++) {
 
-        if (document.getElementById(String("allergy" + i)).checked) {
-            allergies.push((document.getElementById(String("allergy" + i)).value).toLowerCase());
-        }
-    }
+//         if (document.getElementById(String("allergy" + i)).checked) {
+//             allergies.push((document.getElementById(String("allergy" + i)).value).toLowerCase());
+//         }
+//     }
 
-    console.log("Allergies = " + allergies);
-    return false;
-}
-
-let mealtype = "Lunch";
-let mealtypeButton = document.getElementById("mealTypeButton")
-mealtypeButton.onclick = function () {
-    for (i = 1; i < 4; i++) {
-        if (document.getElementById(String("meal" + i)).checked) {
-            mealtype = document.getElementById(String("meal" + i)).value
-        }
-    }
-    return false;
-}
+//     console.log("Allergies = " + allergies);
+//     return false;
+// }
 
 // //recipe search eventlistener
 // let searchButton = document.querySelector("#search")
@@ -165,15 +154,16 @@ mealtypeButton.onclick = function () {
 async function sendRecipeApiRequest(query){
     let APP_ID = "ccbf3e9f"
     let API_KEY = "3e705fd220bb76220d7de25e5505df03"
+
     
     let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}&to=${num_items}`
     console.log(url)
 
-    for(let i = 0; i < allergies.length; i++) {
-        url += "&Health=" + allergies[i]
-    }
+    // for(let i = 0; i < allergies.length; i++) {
+    //     url += "&Health=" + allergies[i]
+    // }
 
-    url += "&mealtype=" + mealtype;
+    // url += "&mealtype=" + mealtype;
 
     console.log(url)
 
@@ -283,6 +273,8 @@ function useRecipeApiData(data){
     let text2 = null;
     let link = null;
 
+    let healthlist = null;
+
     for(let i = 0; i < num_items; i++) {
         li = document.createElement("li");
         card = document.createElement('div')
@@ -298,7 +290,20 @@ function useRecipeApiData(data){
         text1 = document.createElement("p")
         text1.setAttribute("class", "card-text")
         text1.innerHTML = "Source: " + String(data.hits[i].recipe.label.substring(0,30))
-        br = document.createElement("br")
+        // br = document.createElement("br")
+
+        if(data.hits[i].recipe.healthLabels.length > 0) {
+            healthlist = document.createElement("ul")
+            for(let j = 0; j < data.hits[i].recipe.healthLabels.length; j++) {
+                let li = document.createElement("li");
+                let text = document.createElement("h6");
+                text.setAttribute("class", "healthLabel");
+                text.innerHTML = data.hits[i].recipe.healthLabels[j];
+                li.appendChild(text);
+                healthlist.appendChild(li);
+            }
+        }
+
         text2 = document.createElement("p")
         text2.setAttribute("class", "card-text")
         text2.innerHTML = String(data.hits[i].recipe.calories.toString().substring(0, 3)) + " calories"
@@ -308,7 +313,7 @@ function useRecipeApiData(data){
         link.innerHTML = "Check it Out";
         body.appendChild(title);
         body.appendChild(text1);
-        body.appendChild(br);
+        body.appendChild(healthlist);
         body.appendChild(text2);
         body.appendChild(link);
         card.appendChild(img)
