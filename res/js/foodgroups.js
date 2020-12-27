@@ -79,31 +79,32 @@ function useIngredientApiData(data){
 
     document.getElementById("ingcontent").style["display"] = "block";
     document.querySelector("#ingcontent").innerHTML = `
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.FAT.label}</h5>
             <p class="card-text">${String(data.totalDaily.FAT.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.FIBTG.label}</h5>
             <p class="card-text">${String(data.totalDaily.FIBTG.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.CHOCDF.label}</h5>
             <p class="card-text">${String(data.totalDaily.CHOCDF.quantity).substring(0, 3)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.CHOLE.label}</h5>
             <p class="card-text">${String(data.totalDaily.CHOLE.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.PROCNT.label}</h5>
             <p class="card-text">${String(data.totalDaily.PROCNT.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.NA.label}</h5>
             <p class="card-text">${String(data.totalDaily.NA.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <h4>${message}</h4>
+        <br>
+        <h4 id= "resultMessage">${message}</h4>
     `
 }
 
