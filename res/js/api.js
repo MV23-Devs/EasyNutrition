@@ -1,6 +1,5 @@
 let searchButton = document.querySelector("#search")
 let userDiet = "high-protein"
-let result = "protein"
 
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
 searchButton.addEventListener("click", ()=>{
@@ -14,13 +13,7 @@ async function sendApiRequest(){
     let APP_ID = "ccbf3e9f"
     let API_KEY = "3e705fd220bb76220d7de25e5505df03"
     
-    let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${result}`
-
-    for(let i = 0; i < allergies.length; i++) {
-        url += "&Health=" + allergies[i]
-    }
-
-    url += "&mealtype=" + mealtype;
+    let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${mealtype}`
 
     console.log(url)
 
