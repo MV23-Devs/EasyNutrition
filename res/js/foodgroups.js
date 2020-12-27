@@ -105,8 +105,6 @@ function useIngredientApiData(data){
 
 
 
-<<<<<<< HEAD
-=======
 let allergies = []
 
 
@@ -172,7 +170,6 @@ async function sendRecipeApiRequest(query){
     for(let i = 0; i < allergies.length; i++) {
         url += "&Health=" + allergies[i]
     }
->>>>>>> 98c760e... cleaned up website and reoriented focus
 
     url += "&mealtype=" + mealtype;
 
