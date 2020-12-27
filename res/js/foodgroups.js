@@ -73,7 +73,7 @@ function useIngredientApiData(data){
             lowestKey = keys[i];
         }
     }
-    sendRecipeApiRequest(lowest);
+    sendRecipeApiRequest(lowestKey);
     let message = "Looks like you need some more " + lowestKey + "!";
 
     document.getElementById("ingcontent").style["display"] = "block";
