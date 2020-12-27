@@ -12,13 +12,18 @@ let foodGroups = {
     "fruits": fruitItems
 };
 
-let score = {
+let values = {
+    "fat": 0,
+    "fiber": 0,
+    "carbs": 0,
+    "cholesterol": 0,
     "protein": 0,
-    "grain": 0,
-    "dairy": 0,
-    "vegetables": 0,
-    "fruits": 0
+    "sodium": 0
 };
+
+let keys = null;
+let lowest = null;
+let lowestKey = null;
 
 let num_items = 12;
 
@@ -29,19 +34,28 @@ $("#numberItems").change(() => {
 let ingLink = document.getElementById('submitIngredients');
 ingLink.addEventListener("click", (e) => {
     e.preventDefault()
+    values = {
+        "fat": 0,
+        "fiber": 0,
+        "carbs": 0,
+        "cholesterol": 0,
+        "protein": 0,
+        "sodium": 0
+    };
     let ingString = document.getElementById("ingredientField").value;
     let ings = ingString.split(/\n/);
-    let splitIngs = []
     for(let i=0; i<ings.length; i++){
+        let splitIngs = []
+        console.log(ings[i])
         ings[i].split(" ").forEach(element => splitIngs.push(element));
+        let ingAppend = "&ingr=1";
+        for(let i=0; i<splitIngs.length; i++){
+            ingAppend += "%20";
+            ingAppend += String(splitIngs[i]);
+        }
+        
+        sendIngredientsApiRequest(ingAppend);
     }
-    console.log(splitIngs)
-    let ingAppend = "&ingr=1";
-    for(let i=0; i<splitIngs.length; i++){
-        ingAppend += "%20";
-        ingAppend += String(splitIngs[i]);
-    }
-    sendIngredientsApiRequest(ingAppend);
 })
 
 async function sendIngredientsApiRequest(ingredients){
@@ -52,28 +66,29 @@ async function sendIngredientsApiRequest(ingredients){
 
     let response = await fetch(url);
     let data = await response.json()
-    useIngredientApiData(data)
+    incrementIngredientAPIData(data)
 }
 
-function useIngredientApiData(data){
+function incrementIngredientAPIData(data) {
+    values.fat += data.totalDaily.FAT.quantity,
+    values.fiber += data.totalDaily.FIBTG.quantity,
+    values.carbs += data.totalDaily.CHOCDF.quantity,
+    values.cholesterol += data.totalDaily.CHOLE.quantity,
+    values.protein += data.totalDaily.PROCNT.quantity,
+    values.sodium += data.totalDaily.NA.quantity,
 
-    let values = {
-        "fat": data.totalDaily.FAT.quantity,
-        "fiber": data.totalDaily.FIBTG.quantity,
-        "carbs": data.totalDaily.CHOCDF.quantity,
-        "cholesterol": data.totalDaily.CHOLE.quantity,
-        "protein": data.totalDaily.PROCNT.quantity,
-        "sodium": data.totalDaily.NA.quantity
-    };
-    let keys = Object.keys(values);
-    let lowest = values[keys[0]];
-    let lowestKey = keys[0];
+    keys = Object.keys(values);
+    lowest = values[keys[0]];
+    lowestKey = keys[0];
     for(let i=0; i<keys.length; i++){
         if(values[keys[i]] < lowest){
             lowest = values[keys[i]];
             lowestKey = keys[i];
         }
     }
+}
+
+function useIngredientApiData(data){
     sendRecipeApiRequest(lowestKey);
     let message = "Looks like you need some more " + lowestKey + "!";
 
@@ -175,7 +190,6 @@ function useRecipeApiData(data){
     
     let ul = document.getElementById("content");
     $("#content").empty();
-    console.log(ul)
     let li = null;
     let card = null;
     let img = null;
