@@ -45,12 +45,13 @@ ingLink.addEventListener("click", (e) => {
 })
 
 async function sendIngredientsApiRequest(ingredients){
-    let APP_ID = "dfd58b53"
-    let API_KEY = "84a26f80b28818b6eb7936e961b0b744"
+    let APP_ID = "904f282d"
+    let API_KEY = "4b89602f05b17c72ede36c0d13e34c71"
     
     let url = `https://api.edamam.com/api/nutrition-data?app_id=${APP_ID}&app_key=${API_KEY}${ingredients}`;
 
     let response = await fetch(url);
+    console.log(response)
     let data = await response.json()
     useIngredientApiData(data)
 }
@@ -153,8 +154,8 @@ function useIngredientApiData(data){
 
 //recipe search api call
 async function sendRecipeApiRequest(query){
-    let APP_ID = "335d2d4e"
-    let API_KEY = "f7af7c59cda169178d23fe815c9ae980"
+    let APP_ID = "353e9f54"
+    let API_KEY = "edbfc920d338b67422c4f4943b277bc4"
 
     
     let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}&to=${num_items}`
