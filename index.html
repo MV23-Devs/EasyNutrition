@@ -88,146 +88,18 @@
             </a>
         </div>
 
-
-
-
-        <div id="centralArea">
-
-            <div id="tableContainer" class="mediumCard">
-                <h1>Meal Breakdown:</h1>
-                <hr>
-                <form id="mealSelection">
-                    <div class="fakeCol">
-                        <h3>Proteins</h3>
-                        <!-- meats  -->
-                        <label for="protein1">
-                            <input type="radio" name="protein" id="protein1" value="whiteMeats">
-                            White meat</label>
-                        <br>
-
-                        <label for="protein2">
-                            <input type="radio" name="protein" id="protein2" value="redMeats">
-                            Red meat</label>
-                        <br>
-
-                        <label for="protein3">
-                            <input type="radio" name="protein" id="protein3" value="fish" />
-                            Fish</label>
-                        <br>
-                        <br>
-                        <input type="number" id="proteinNumber" class="numberInputs">
-                        <p class="units">ounces</p>
-
-
-                    </div>
-
-                    <div class="fakeCol">
-                        <h3>Grains</h3>
-                        <!-- grains  -->
-                        <label for="grain1">
-                            <input type="radio" name="grain" id="grain1" value="bread">
-                            Bread</label>
-                        <br>
-                        <label for="grain2">
-                            <input type="radio" name="grain" id="grain2" value="pasta">
-                            Pasta</label>
-                        <br>
-                        <label for="grain3">
-                            <input type="radio" name="grain" id="grain3" value="rice">
-                            Rice</label>
-                        <br>
-                        <br>
-                        <input type="number" id="grainNumber" class="numberInputs">
-                        <p class="units">ounces</p>
-
-
-                    </div>
-                    <div class="fakeCol">
-                        <h3>Dairy</h3>
-                        <!-- dairy  -->
-                        <label for="dairy1">
-                            <input type="radio" name="dairy" id="dairy1" value="milk">
-                            Milk</label>
-                        <br>
-
-                        <label for="dairy2">
-                            <input type="radio" name="dairy" id="dairy2" value="cheese">
-                            Cheese</label>
-                        <br>
-
-                        <label for="dairy3">
-                            <input type="radio" name="dairy" id="dairy3" value="yogurt" />
-                            Yogurt</label>
-                        <br>
-                        <br>
-                        <input type="number" id="dairyNumber" class="numberInputs">
-                        <p class="units">ounces</p>
-
-
-                    </div>
-                    <div class="fakeCol">
-                        <h3>Fruits</h3>
-                        <!-- fruits  -->
-                        <label for="fruits1">
-                            <input type="radio" name="fruits" id="fruits1" value="berries">
-                            Berries</label>
-                        <br>
-
-                        <label for="fruit2">
-                            <input type="radio" name="fruits" id="fruits2" value="legumes">
-                            Legumes(Beans)</label>
-                        <br>
-
-                        <label for="fruit3">
-                            <input type="radio" name="fruits" id="fruits3" value="drupes" />
-                            Drupes</label>
-                        <br>
-
-                        <br>
-                        <input type="number" id="fruitsNumber" class="numberInputs">
-                        <p class="units">ounces</p>
-
-                    </div>
-                    <div class="fakeCol">
-                        <h3>Vegetables</h3>
-                        <!-- vegetables  -->
-                        <label for="vegetables1">
-                            <input type="radio" name="vegetables" id="vegetables1" value="peppers">
-                            Peppers</label>
-                        <br>
-                        <label for="vegetables2">
-                            <input type="radio" name="vegetables" id="vegetables2" value="cabbage">
-                            Cabbage</label>
-                        <br>
-                        <label for="vegetables3">
-                            <input type="radio" name="vegetables" id="vegetables3" value="potatoes">
-                            Potatoes</label>
-                        <br>
-                        <br>
-                        <input type="number" id="vegetablesNumber" class="numberInputs">
-                        <p class="units">ounces</p>
-
-                    </div>
-                    <!-- <button id="submitSelection">Submit</button> -->
-                </form>
-
-                <div id="results">
-                    <hr>
-                    <h3 id="displayText"></h3>
-                    <ul id="needs">
-
-                    </ul>
-                    <span id="continueButtonDiv"></span>
-                </div>
-
-
-            </div>
-
-
-
-        </div>
+        
 
         <hr>
+
+        <div id="ingredientsDiv" class="mediumCard">
+            <form id="ingredientSelection">
+                <h3>Ingredient Selection</h3>
+                <textarea id="ingredientField", name="ingredientField" class="textField" placeholder="For example:&#10;12 oz steak&#10;3 oz carrot&#10;5 oz apple"></textarea>
+                <br>
+                <input type="submit" value="Submit" id="submitIngredients">
+            </form>
+        </div>
 
         <div id="mealSelector" class="mediumCard">
             <!-- "healthLabels" : [ "DAIRY-FREE", "MILK-FREE", "PEANUT-FREE", "TREE-NUT-FREE", "SOY-FREE", "FISH-FREE", "SHELLFISH-FREE" ], -->
@@ -313,18 +185,15 @@
                 </div>
         </div>
 
-        <div id="ingredientsDiv" class="mediumCard">
-            <form id="ingredientSelection">
-                <h3>Ingredient Selection</h3>
-                <label for="ingredientField">Input ingredients, separated by spaces:</label>
-                <input type="text" id="ingredientField" name="ingredientField" />
-                <input type="submit" value="Submit" id="submitIngredients">
-            </form>
+        
+
+        <div id="ingcontent">
+
         </div>
 
         <div class="recipes">
             <div class="img-container">
-                <button type="button" class="green btn-block" id="search">Find Your Next Meal</button>
+                <!-- <button type="button" class="green btn-block" id="search">Find Your Next Meal</button> -->
             </div>
             <br />
             <br />
