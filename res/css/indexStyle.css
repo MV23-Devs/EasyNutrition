@@ -163,11 +163,19 @@ footer {
     min-height: 700px !important;
     max-height: 700px !important;
     margin-bottom: 5px;
+    overflow:  hidden !important;
+
 
 }
 
 .cardImg {
-    width: 100%;
+    width: 120%;
+    height: 120%;
+    
+    margin-left: -10%;
+    margin-top: -10%;
+
+
 }
 
 
