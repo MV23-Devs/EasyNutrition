@@ -147,6 +147,7 @@ footer {
 
 
 #sideContainer {
+
     display: flex;
     width: 100%;
 }
@@ -199,7 +200,10 @@ footer {
   }
 
   #content {
-      display: none;
+      width: 100%;
+      margin-top: 10%;
+      display: block;
+
   }
 
 
