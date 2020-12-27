@@ -212,6 +212,9 @@ function useRecipeApiData(data){
         if(data.hits[i].recipe.healthLabels.length > 0) {
             healthlist = document.createElement("ul")
             for(let j = 0; j < data.hits[i].recipe.healthLabels.length; j++) {
+                if(j > 2) {
+                    break;
+                }
                 let li = document.createElement("li");
                 let text = document.createElement("h6");
                 text.setAttribute("class", "healthLabel");
