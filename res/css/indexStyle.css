@@ -12,6 +12,22 @@ body {
 }
 
 
+.buttons {
+    padding: 15px;
+    border: 0px solid black;
+    border-radius: 20px;
+    outline: none !important;
+    background-color: white;
+    margin: 10px;
+    margin-top: 50px;
+    background-color: #ddd;
+}
+
+.buttons:hover {
+    background-color: #aaa;
+
+}
+
 /* body begins here */
 
 #header {
@@ -27,6 +43,11 @@ body {
     width: 300px;
     height: 75px;
     display: inline-block;
+}
+
+.overImage {
+    color: white;
+    text-shadow: 0px 0px 10px #000000;
 }
 
 .carousel-image {
@@ -51,6 +72,11 @@ body {
 .textField{
     width: 500px;
     height: 175px;
+    background-color: #ddd;
+    border: 0px black solid;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
 }
 
 /* central card in the selectoin area  */
@@ -202,8 +228,9 @@ footer {
   #content {
       width: 100%;
       margin-top: 10%;
-      display: block;
-
+      /* display: flex !important; */
+        display: ruby-flexbox !important;
+        padding: 10px !important;
   }
 
 
