@@ -59,6 +59,10 @@ body {
 #centralArea {
 }
 
+.recipeHeader {
+    text-align: center;
+    padding: 20px;
+}
 
 #carouselExampleIndicators {
     height: 50% !important;

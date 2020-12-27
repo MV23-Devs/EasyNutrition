@@ -20,7 +20,11 @@ let score = {
     "fruits": 0
 };
 
+let num_items = 20;
 
+$("#numberItems").change(() => {
+    num_items = $("#numberItems").val()
+})
 
 let ingLink = document.getElementById('submitIngredients');
 ingLink.addEventListener("click", (e) => {
@@ -37,7 +41,6 @@ ingLink.addEventListener("click", (e) => {
         ingAppend += "%20";
         ingAppend += String(splitIngs[i]);
     }
-    console.log(ingAppend)
     sendIngredientsApiRequest(ingAppend);
 })
 
@@ -48,9 +51,7 @@ async function sendIngredientsApiRequest(ingredients){
     let url = `https://api.edamam.com/api/nutrition-data?app_id=${APP_ID}&app_key=${API_KEY}${ingredients}`;
 
     let response = await fetch(url);
-    // &diet=${userDiet}
     let data = await response.json()
-    console.log(data)
     useIngredientApiData(data)
 }
 
@@ -136,7 +137,6 @@ mealtypeButton.onclick = function () {
             mealtype = document.getElementById(String("meal" + i)).value
         }
     }
-    console.log(mealtype)
     return false;
 }
 
@@ -166,7 +166,7 @@ async function sendRecipeApiRequest(query){
     let APP_ID = "ccbf3e9f"
     let API_KEY = "3e705fd220bb76220d7de25e5505df03"
     
-    let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}`
+    let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}&to=${num_items}`
     console.log(url)
 
     for(let i = 0; i < allergies.length; i++) {
@@ -180,95 +180,141 @@ async function sendRecipeApiRequest(query){
     let response = await fetch(url);
     // &diet=${userDiet}
     let data = await response.json()
+    console.log(data)
     useRecipeApiData(data)
 }
 
 //recipe search content
 function useRecipeApiData(data){
     document.getElementById("content").style["display"] = "block";
-    document.querySelector("#content").innerHTML = `
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[0].recipe.label.substring(0, 25)}</h5>
-            <p class="card-text">Source: ${data.hits[0].recipe.source} <br>${data.hits[0].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[0].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[1].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[1].recipe.label.substring(0, 25)}...</h5>
-            <p class="card-text">Source: ${data.hits[1].recipe.source}<br> ${data.hits[1].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[1].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[2].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[2].recipe.label.substring(0,25)}...</h5>
-            <p class="card-text">Source: ${data.hits[2].recipe.source}<br> ${data.hits[2].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[2].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[3].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[3].recipe.label.substring(0,25)}...</h5>
-            <p class="card-text">Source: ${data.hits[3].recipe.source} <br>${data.hits[3].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[3].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div> 
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[4].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[4].recipe.label.substring(0,25)}...</h5>
-            <p class="card-text">Source: ${data.hits[4].recipe.source} <br>${data.hits[4].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[4].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[5].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[5].recipe.label.substring(0,25)}...</h5>
-            <p class="card-text">Source: ${data.hits[5].recipe.source} <br>${data.hits[5].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[5].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[6].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[6].recipe.label.substring(0,25)}...</h5>
-            <p class="card-text">Source: ${data.hits[6].recipe.source} <br>${data.hits[6].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[6].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[7].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[7].recipe.label.substring(0,25)}...</h5>
-            <p class="card-text">Source: ${data.hits[7].recipe.source}<br> ${data.hits[7].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[7].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[8].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[8].recipe.label.substring(0,25)}...</h5>
-            <p class="card-text">Source: ${data.hits[8].recipe.source} <br>${data.hits[8].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[8].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="${data.hits[9].recipe.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.hits[9].recipe.label.substring(0,25)}...</h5>
+//     document.querySelector("#content").innerHTML = `
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[0].recipe.label.substring(0, 30)}</h5>
+//             <p class="card-text">Source: ${data.hits[0].recipe.source} <br>${data.hits[0].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[0].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[1].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[1].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[1].recipe.source}<br> ${data.hits[1].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[1].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[2].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[2].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[2].recipe.source}<br> ${data.hits[2].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[2].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[3].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[3].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[3].recipe.source} <br>${data.hits[3].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[3].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div> 
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[4].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[4].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[4].recipe.source} <br>${data.hits[4].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[4].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[5].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[5].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[5].recipe.source} <br>${data.hits[5].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[5].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[6].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[6].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[6].recipe.source} <br>${data.hits[6].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[6].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[7].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[7].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[7].recipe.source}<br> ${data.hits[7].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[7].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[8].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[8].recipe.label.substring(0,30)}...</h5>
+//             <p class="card-text">Source: ${data.hits[8].recipe.source} <br>${data.hits[8].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[8].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+//     <div class="card" style="width: 18rem;">
+//         <img src="${data.hits[9].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
+//         <div class="card-body">
+//             <h5 class="card-title">${data.hits[9].recipe.label.substring(0,30)}...</h5>
             
-            <p class="card-text">Source: ${data.hits[9].recipe.source} <br> ${data.hits[9].recipe.calories.toString().substring(0, 3)} calories</p>
-            <a href="${data.hits[9].recipe.url}" class="btn btn-primary">Check it Out!</a>
-        </div>
-    </div>
-`
+//             <p class="card-text">Source: ${data.hits[9].recipe.source} <br> ${data.hits[9].recipe.calories.toString().substring(0, 3)} calories</p>
+//             <a href="${data.hits[9].recipe.url}" class="btn btn-primary">Check it Out!</a>
+//         </div>
+//     </div>
+// `
+
+
+    let ul = document.getElementById("content");
+    let li = null;
+    let card = null;
+    let img = null;
+    let body = null;
+    let title = null;
+    let text1 = null;
+    let br = null;
+    let text2 = null;
+    let link = null;
+
+    for(let i = 0; i < num_items; i++) {
+        li = document.createElement("li");
+        card = document.createElement('div')
+        card.setAttribute("class", "card");
+        // card.style["width"] = "18rem";
+        img = document.createElement("img")
+        img.setAttribute("src", data.hits[i].recipe.image)
+        body = document.createElement("div")
+        body.setAttribute("class", "card-body")
+        title = document.createElement("h5")
+        title.setAttribute("class", "card-title")
+        title.innerHTML = data.hits[i].recipe.label.substring(0,30)
+        text1 = document.createElement("p")
+        text1.setAttribute("class", "card-text")
+        text1.innerHTML = "Source: " + String(data.hits[i].recipe.label.substring(0,30))
+        br = document.createElement("br")
+        text2 = document.createElement("p")
+        text2.setAttribute("class", "card-text")
+        text2.innerHTML = String(data.hits[i].recipe.calories.toString().substring(0, 3)) + " calories"
+        link = document.createElement("a")
+        link.setAttribute("class", "btn btn-primary")
+        link.setAttribute("href", data.hits[i].recipe.url)
+        link.innerHTML = "Check it Out";
+        body.appendChild(title);
+        body.appendChild(text1);
+        body.appendChild(br);
+        body.appendChild(text2);
+        body.appendChild(link);
+        card.appendChild(img)
+        card.appendChild(body)
+        ul.appendChild(card);
+    }
 }
 
 //function takes in an array of items in meal and returns a string message with all the missing groups
