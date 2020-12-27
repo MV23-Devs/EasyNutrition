@@ -182,8 +182,8 @@ function useIngredientApiData(data){
 
 //recipe search api call
 async function sendRecipeApiRequest(query){
-    let APP_ID = "1ae4f383"
-    let API_KEY = "c2eba80de1ec07a485975a6bd10bcc45"
+    let APP_ID = "1016c633"
+    let API_KEY = "61c97ffd05bdd611d43c7135f175f69e"
 
     
     let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}&to=${num_items}`
@@ -196,6 +196,7 @@ async function sendRecipeApiRequest(query){
 
 //recipe search content
 function useRecipeApiData(data){
+    console.log("fuck u js")
     document.getElementById("content").style["display"] = "block";
     document.getElementById("rline").style["display"] = "block";
     document.getElementById("rtitle").style["display"] = "block";
