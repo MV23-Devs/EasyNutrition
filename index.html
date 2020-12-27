@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
-    
+
 
     <!-- import the webpage's javascript file -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -43,7 +43,10 @@
             </div>
         </div>
     </nav> -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+
+
+    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
@@ -90,127 +93,137 @@
             </a>
         </div>
 
+ -->
+    <img src="https://online.ahu.edu/wp-content/uploads/2019/03/Healthy-Food-Doesnt-Have-To-Be-Expensive.jpg"
+        class="carousel-image d-block w-100" alt="...">
+
+    <div class="carousel-caption d-none d-md-block">
+        <h1 class="overImage">Maintaining Balance</h1>
+        <h3 class="overImage">Get Your Needed Nutrients Daily</h3>
+    </div>
 
 
-        <hr>
+    <hr>
 
-        <div id="ingredientsDiv" class="mediumCard">
-            <form id="ingredientSelection">
-                <h3>What Food Have You Had Today?</h3>
-                <textarea id="ingredientField" , name="ingredientField" class="textField"
-                    placeholder="For example:&#10;12 oz steak&#10;3 oz carrot&#10;5 oz apple"></textarea>
-                <br>
-                <button class="buttons" id="submitIngredients">Submit</button>
+    <div id="ingredientsDiv" class="mediumCard">
+        <form id="ingredientSelection">
+            <h3>What Food Have You Had Today?</h3>
+            <textarea id="ingredientField" , name="ingredientField" class="textField"
+                placeholder="For example:&#10;12 oz steak&#10;3 oz carrot&#10;5 oz apple"></textarea>
+            <br>
+            <button class="buttons" id="submitIngredients">Submit</button>
+        </form>
+    </div>
+    <div id="ingcontent">
+
+    </div>
+    <center>
+        <h3>Customize Your Meals <i class="em em-ramen" aria-role="presentation" aria-label="STEAMING BOWL"></i></h3>
+    </center>
+    <br />
+    <div id="sideContainer">
+        <div id="mealSelector" class="mediumCard">
+            <!-- "healthLabels" : [ "DAIRY-FREE", "MILK-FREE", "PEANUT-FREE", "TREE-NUT-FREE", "SOY-FREE", "FISH-FREE", "SHELLFISH-FREE" ], -->
+
+            <form id="mealTypeSelection">
+                <div class="fakeCol">
+                    <h3>Which meal</h3>
+                    <!-- meats  -->
+                    <label for="meal1">
+                        <input type="radio" checked name="meal" id="meal1" value="Breakfast">
+                        Breakfast</label>
+                    <br>
+
+                    <label for="meal2">
+                        <input type="radio" name="meal" id="meal2" value="Lunch">
+                        Lunch</label>
+                    <br>
+
+                    <label for="meal3">
+                        <input type="radio" name="meal" id="meal3" value="Dinner">
+                        Dinner</label>
+                    <br>
+
+
+                </div>
+                <button class="buttons" id="mealTypeButton">Submit</button>
             </form>
         </div>
-        <center><h3>Customize Your Meals <i class="em em-ramen" aria-role="presentation" aria-label="STEAMING BOWL"></i></h3></center>
-        <br/>
-        <div id="sideContainer">
-            <div id="mealSelector" class="mediumCard">
-                <!-- "healthLabels" : [ "DAIRY-FREE", "MILK-FREE", "PEANUT-FREE", "TREE-NUT-FREE", "SOY-FREE", "FISH-FREE", "SHELLFISH-FREE" ], -->
 
-                <form id="mealTypeSelection">
-                    <div class="fakeCol">
-                        <h3>Which meal</h3>
-                        <!-- meats  -->
-                        <label for="meal1">
-                            <input type="radio" checked name="meal" id="meal1" value="Breakfast">
-                            Breakfast</label>
-                        <br>
+        <div id="allergySelector" class="mediumCard">
+            <!-- "healthLabels" : [ "DAIRY-FREE", "MILK-FREE", "PEANUT-FREE", "TREE-NUT-FREE", "SOY-FREE", "FISH-FREE", "SHELLFISH-FREE" ], -->
 
-                        <label for="meal2">
-                            <input type="radio" name="meal" id="meal2" value="Lunch">
-                            Lunch</label>
-                        <br>
+            <form id="allergySelection">
+                <div class="fakeCol">
+                    <h3>Allergies/dietary restrictions</h3>
+                    <!-- meats  -->
+                    <label for="allergy1">
+                        <input type="checkbox" name="allergy" id="allergy1" value="DAIRY-FREE">
+                        Dairy</label>
+                    <br>
 
-                        <label for="meal3">
-                            <input type="radio" name="meal" id="meal3" value="Dinner">
-                            Dinner</label>
-                        <br>
-
-
-                    </div>
-                    <button class="buttons" id="mealTypeButton">Submit</button>
-                </form>
-            </div>
-
-            <div id="allergySelector" class="mediumCard">
-                <!-- "healthLabels" : [ "DAIRY-FREE", "MILK-FREE", "PEANUT-FREE", "TREE-NUT-FREE", "SOY-FREE", "FISH-FREE", "SHELLFISH-FREE" ], -->
-
-                <form id="allergySelection">
-                    <div class="fakeCol">
-                        <h3>Allergies/dietary restrictions</h3>
-                        <!-- meats  -->
-                        <label for="allergy1">
-                            <input type="checkbox" name="allergy" id="allergy1" value="DAIRY-FREE">
-                            Dairy</label>
-                        <br>
-
-                        <!-- <label for="allergy2">
+                    <!-- <label for="allergy2">
                         <input type="checkbox" name="allergy" id="allergy2" value="FISH-FREE" />
                         Fish</label> -->
-                        <!-- <br> -->
-                        <label for="allergy2">
-                            <input type="checkbox" name="allergy" id="allergy2" value="PEANUT-FREE">
-                            Peanut</label>
-                        <br>
+                    <!-- <br> -->
+                    <label for="allergy2">
+                        <input type="checkbox" name="allergy" id="allergy2" value="PEANUT-FREE">
+                        Peanut</label>
+                    <br>
 
-                        <label for="allergy3">
-                            <input type="checkbox" name="allergy" id="allergy3" value="TREE-NUT-FREE">
-                            Tree nut</label>
-                        <br>
+                    <label for="allergy3">
+                        <input type="checkbox" name="allergy" id="allergy3" value="TREE-NUT-FREE">
+                        Tree nut</label>
+                    <br>
 
-                        <label for="allergy4">
-                            <input type="checkbox" name="allergy" id="allergy4" value="SOY-FREE" />
-                            Soy</label>
-                        <br>
-                        <!-- <label for="allergy6">
+                    <label for="allergy4">
+                        <input type="checkbox" name="allergy" id="allergy4" value="SOY-FREE" />
+                        Soy</label>
+                    <br>
+                    <!-- <label for="allergy6">
                         <input type="checkbox" name="allergy" id="allergy6" value="SHELLFISH-FREE" />
                         Shellfish</label> -->
-                        <!-- <br> -->
+                    <!-- <br> -->
 
-                        <label for="allergy5">
-                            <input type="checkbox" name="allergy" id="allergy5" value="VEGETARIAN" />
-                            Vegatarian</label>
-                        <br>
-                        <label for="allergy6">
-                            <input type="checkbox" name="allergy" id="allergy6" value="VEGAN" />
-                            Vegan</label>
-                        <br>
-                        <label for="allergy7">
-                            <input type="checkbox" name="allergy" id="allergy7" value="GLUTEN-FREE" />
-                            Gluten</label>
-                        <br>
-                        <label for="allergy8">
-                            <input type="checkbox" name="allergy" id="allergy8" value="ALCHOHOL-FREE" />
-                            Vegan</label>
-                        <br>
+                    <label for="allergy5">
+                        <input type="checkbox" name="allergy" id="allergy5" value="VEGETARIAN" />
+                        Vegatarian</label>
+                    <br>
+                    <label for="allergy6">
+                        <input type="checkbox" name="allergy" id="allergy6" value="VEGAN" />
+                        Vegan</label>
+                    <br>
+                    <label for="allergy7">
+                        <input type="checkbox" name="allergy" id="allergy7" value="GLUTEN-FREE" />
+                        Gluten</label>
+                    <br>
+                    <label for="allergy8">
+                        <input type="checkbox" name="allergy" id="allergy8" value="ALCHOHOL-FREE" />
+                        Vegan</label>
+                    <br>
 
-                        <button class="buttons" id="submitAllergySelection">Submit</button>
-                    </div>
-                </form>
-            </div>
-
+                    <button class="buttons" id="submitAllergySelection">Submit</button>
+                </div>
+            </form>
         </div>
 
+    </div>
 
 
-        <div id="ingcontent">
 
+
+    <div class="recipes">
+        <div class="img-container">
+            <!-- <button type="button" class="green btn-block" id="search">Find Your Next Meal</button> -->
         </div>
-
-        <div class="recipes">
-            <div class="img-container">
-                <!-- <button type="button" class="green btn-block" id="search">Find Your Next Meal</button> -->
-            </div>
-            <br />
-            <br />
-            <div id="content">
-            </div>
+        <br />
+        <br />
+        <div id="content">
         </div>
+    </div>
 
-        <script src="res/js/foodgroups.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="res/js/foodgroups.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 
 </html>

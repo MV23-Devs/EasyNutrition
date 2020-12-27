@@ -60,6 +60,13 @@ body {
 }
 
 
+#carouselExampleIndicators {
+    height: 50% !important;
+    /* max-height: 300px !important; */
+
+}
+
+
 
 #allergySelector {
     /* width: 150px; */
@@ -130,7 +137,7 @@ footer {
     width: calc(25% - 6px) !important;
     min-height: 500px !important;
     max-height: 500px !important;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 
 }
 
@@ -152,6 +159,7 @@ footer {
     color: white;
     margin: 20px;
     display: inline-block;
+    opacity: 90%;
 }
 
 
@@ -165,6 +173,8 @@ footer {
 
 #ingcontent {
     display: inline-flexbox;
+    width: 63%;
+    margin: auto;
 }
 
 #mealSelector {
