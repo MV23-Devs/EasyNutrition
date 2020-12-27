@@ -68,6 +68,11 @@ body {
 .recipeHeader {
     text-align: center;
     padding: 20px;
+    display: none;
+}
+
+#rline {
+    display: none;
 }
 
 #carouselExampleIndicators {

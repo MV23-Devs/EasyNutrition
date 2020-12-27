@@ -33,46 +33,51 @@
         <h1 class="overImage">Maintaining Balance</h1>
         <h3 class="overImage">Get Your Needed Nutrients Daily</h3>
     </div>
+
     <div id="ingredientsDiv" class="mediumCard">
         <form id="ingredientSelection">
-            <h3>What Food Have You Had Today?</h3>
+            <h3 id="ingredientTitle">What Food Have You Had Today?</h3>
+            <p>Provide the list of ingredients from your last meal into the box below:</p>
             <textarea id="ingredientField" , name="ingredientField" class="textField"
                 placeholder="For example:&#10;12 oz steak&#10;3 oz carrot&#10;5 oz apple"></textarea>
             <br>
             <button class="buttons" id="submitIngredients">Submit</button>
         </form>
     </div>
-    
+
     <div id="ingcontent">
 
     </div>
-    
+
     <div class="mediumCard">
-        
+
         <h4># of Recipes Returned</h4>
-        <h6>Acceptable values are between 1 and 50</h6>
+        <p>specify the amount of recipes you want returned</p>
+        <h6>Acceptable values are between 1 and 100</h6>
         <input type="number" name="numberItems" id="numberItems" value="12" min="1" max="80">
     </div>
-        <h1 class="recipeHeader"><i class="em em-shallow_pan_of_food" aria-role="presentation" aria-label="SHALLOW PAN OF FOOD"></i> Recipes Based on Your Nutritional Needs: </h1>
-    </div>
 
+        <hr id="rline">
 
-    <div id="ingcontent">
+        <h1 id="rtitle" class="recipeHeader"><i class="em em-shallow_pan_of_food" aria-role="presentation"
+                aria-label="SHALLOW PAN OF FOOD"></i> Recipes Based on Your Nutritional Needs: </h1>
 
-    </div>
+        <div id="ingcontent">
 
-    <div class="recipes">
-        <div class="img-container">
-            <!-- <button type="button" class="green btn-block" id="search">Find Your Next Meal</button> -->
         </div>
-        <br />
-        <br />
-        <div id="content">
-        </div>
-    </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="res/js/foodgroups.js"></script>
+        <div class="recipes">
+            <div class="img-container">
+                <!-- <button type="button" class="green btn-block" id="search">Find Your Next Meal</button> -->
+            </div>
+            <br />
+            <br />
+            <div id="content">
+            </div>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="res/js/foodgroups.js"></script>
 </body>
 
 </html>

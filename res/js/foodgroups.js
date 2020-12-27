@@ -177,7 +177,11 @@ async function sendRecipeApiRequest(query){
 //recipe search content
 function useRecipeApiData(data){
     document.getElementById("content").style["display"] = "block";
+    document.getElementById("rline").style["display"] = "block";
+    document.getElementById("rtitle").style["display"] = "block";
 
+    document.getElementById("rtitle").scrollIntoView();
+    
     let ul = document.getElementById("content");
     let li = null;
     let card = null;
