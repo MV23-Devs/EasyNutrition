@@ -15,7 +15,7 @@ body {
 /* body begins here */
 
 #header {
-    background-color: #009c36;
+    background-color: #333;
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -65,7 +65,7 @@ body {
     /* min-height: 500px; */
     min-width: 500px;
     color: white;
-    background-color: #009c36;
+    background-color: #333;
     opacity: 90%;
 }
 
@@ -188,7 +188,7 @@ footer {
   }
 
   .green {
-      background-color: #009c36;
+      background-color: #333;
       padding: 20px;
       font-size: 30px;
       color: white;
