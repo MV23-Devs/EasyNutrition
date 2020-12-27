@@ -32,12 +32,20 @@ $("#numberItems").change(() => {
 })
 
 let ingLink = document.getElementById('submitIngredients');
-$("#submitIngredients").click(function(e){
+$("#submitIngredients").click((e) => {
     e.preventDefault()
+    values = {
+        "fat": 0,
+        "fiber": 0,
+        "carbs": 0,
+        "cholesterol": 0,
+        "protein": 0,
+        "sodium": 0
+    };
     let ingString = document.getElementById("ingredientField").value;
     let ings = ingString.split(/\n/);
-    let splitIngs = []
     for(let i=0; i<ings.length; i++){
+        let splitIngs = []
         console.log(ings[i])
         ings[i].split(" ").forEach(element => splitIngs.push(element));
         let ingAppend = "&ingr=1";
@@ -46,34 +54,42 @@ $("#submitIngredients").click(function(e){
             ingAppend += "%20";
             ingAppend += String(splitIngs[i]);
         }
-        
-        console.log(ingAppend)
 
-        sendIngredientsApiRequest(ingAppend);
+        sendIngredientsApiRequest(ingAppend).then((result) => {
+            values.fat += result.fat;
+            values.fiber += result.fiber;
+            values.carbs += result.carbs;
+            values.cholesterol += result.cholesterol;
+            values.protein += result.protein;
+            values.sodium += result.sodium;
+            return values
+        }).then(values => {
+            useIngredientApiData(values)
+        })
+
     }
-    console.log(values.fat)
-    useIngredientApiData(values)
+
+    
 })
 
 async function sendIngredientsApiRequest(ingredients){
 
-    let APP_ID = "904f282d"
-    let API_KEY = "4b89602f05b17c72ede36c0d13e34c71"
+    let APP_ID = "1ae4f383"
+    let API_KEY = "c2eba80de1ec07a485975a6bd10bcc45"
     
     let url = `https://api.edamam.com/api/nutrition-data?app_id=${APP_ID}&app_key=${API_KEY}${ingredients}`;
 
     let response = await fetch(url);
-    let data = await response.json()
-    incrementIngredientAPIData(data)
-}
-
-function incrementIngredientAPIData(data) {
-    values.fat += data.totalDaily.FAT.quantity
-    values.fiber += data.totalDaily.FIBTG.quantity
-    values.carbs += data.totalDaily.CHOCDF.quantity
-    values.cholesterol += data.totalDaily.CHOLE.quantity
-    values.protein += data.totalDaily.PROCNT.quantity
-    values.sodium += data.totalDaily.NA.quantity
+    let data = await response.json();
+    let result = {
+        "fat": data.totalDaily.FAT.quantity,
+        "fiber": data.totalDaily.FIBTG.quantity,
+        "carbs": data.totalDaily.CHOCDF.quantity,
+        "cholesterol": data.totalDaily.CHOLE.quantity,
+        "protein": data.totalDaily.PROCNT.quantity,
+        "sodium": data.totalDaily.NA.quantity
+    }
+    return result;
 }
 
 function useIngredientApiData(data){
@@ -86,7 +102,7 @@ function useIngredientApiData(data){
             lowestKey = keys[i];
         }
     }
-    console.log(data)
+    // console.log(data)
     sendRecipeApiRequest(lowestKey);
     let message = "Looks like you need some more " + lowestKey + "!";
 
@@ -166,8 +182,8 @@ function useIngredientApiData(data){
 
 //recipe search api call
 async function sendRecipeApiRequest(query){
-    let APP_ID = "353e9f54"
-    let API_KEY = "edbfc920d338b67422c4f4943b277bc4"
+    let APP_ID = "1ae4f383"
+    let API_KEY = "c2eba80de1ec07a485975a6bd10bcc45"
 
     
     let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}&to=${num_items}`
