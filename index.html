@@ -43,33 +43,44 @@
             </div>
         </div>
     </nav> -->
-    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> -->
-    <!--  <ol class="carousel-indicators">
+
+
+
+    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-        </ol> -->
-    <div id="carouselExampleDark" class="carousel carousel-dark slide">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460640004-fish-stick-tacosl1.jpg"
-                    class="carousel-image d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 class="overImage">EasyNutrition</h1>
-                    <h3 class="overImage">Your Customized Meal Planner</h3>
+        </ol> 
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460640004-fish-stick-tacosl1.jpg"
+                        class="carousel-image d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class = "overImage">EasyNutrition</h1>
+                        <h3  class = "overImage">Your Customized Meal Planner</h3>
+                    </div>
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
-    </div>
 
+ -->
+    <img src="https://online.ahu.edu/wp-content/uploads/2019/03/Healthy-Food-Doesnt-Have-To-Be-Expensive.jpg"
+        class="carousel-image d-block w-100" alt="..." id="bigImage">
+
+    <div class="carousel-caption d-none d-md-block">
+        <h1 class="overImage">Maintaining Balance</h1>
+        <h3 class="overImage">Get Your Needed Nutrients Daily</h3>
+    </div>
 
 
     <hr>
@@ -83,14 +94,108 @@
             <button class="buttons" id="submitIngredients">Submit</button>
         </form>
     </div>
-    <br />
+    <div id="ingcontent">
 
-    <div class="settings mediumCard">
+    </div>
+    <center>
+        <h3>Customize Your Meals <i class="em em-ramen" aria-role="presentation" aria-label="STEAMING BOWL"></i></h3>
+    </center>
+    <br />
+    <div id="sideContainer">
+        <div id="mealSelector" class="mediumCard">
+            <!-- "healthLabels" : [ "DAIRY-FREE", "MILK-FREE", "PEANUT-FREE", "TREE-NUT-FREE", "SOY-FREE", "FISH-FREE", "SHELLFISH-FREE" ], -->
+
+            <form id="mealTypeSelection">
+                <div class="fakeCol">
+                    <h3>Which meal</h3>
+                    <!-- meats  -->
+                    <label for="meal1">
+                        <input type="radio" checked name="meal" id="meal1" value="Breakfast">
+                        Breakfast</label>
+                    <br>
+
+                    <label for="meal2">
+                        <input type="radio" name="meal" id="meal2" value="Lunch">
+                        Lunch</label>
+                    <br>
+
+                    <label for="meal3">
+                        <input type="radio" name="meal" id="meal3" value="Dinner">
+                        Dinner</label>
+                    <br>
+
+
+                </div>
+                <button class="buttons" id="mealTypeButton">Submit</button>
+            </form>
+        </div>
+
+        <div id="allergySelector" class="mediumCard">
+            <!-- "healthLabels" : [ "DAIRY-FREE", "MILK-FREE", "PEANUT-FREE", "TREE-NUT-FREE", "SOY-FREE", "FISH-FREE", "SHELLFISH-FREE" ], -->
+
+            <form id="allergySelection">
+                <div class="fakeCol">
+                    <h3>Allergies/dietary restrictions</h3>
+                    <!-- meats  -->
+                    <label for="allergy1">
+                        <input type="checkbox" name="allergy" id="allergy1" value="DAIRY-FREE">
+                        Dairy</label>
+                    <br>
+
+                    <!-- <label for="allergy2">
+                        <input type="checkbox" name="allergy" id="allergy2" value="FISH-FREE" />
+                        Fish</label> -->
+                    <!-- <br> -->
+                    <label for="allergy2">
+                        <input type="checkbox" name="allergy" id="allergy2" value="PEANUT-FREE">
+                        Peanut</label>
+                    <br>
+
+                    <label for="allergy3">
+                        <input type="checkbox" name="allergy" id="allergy3" value="TREE-NUT-FREE">
+                        Tree nut</label>
+                    <br>
+
+                    <label for="allergy4">
+                        <input type="checkbox" name="allergy" id="allergy4" value="SOY-FREE" />
+                        Soy</label>
+                    <br>
+                    <!-- <label for="allergy6">
+                        <input type="checkbox" name="allergy" id="allergy6" value="SHELLFISH-FREE" />
+                        Shellfish</label> -->
+                    <!-- <br> -->
+
+                    <label for="allergy5">
+                        <input type="checkbox" name="allergy" id="allergy5" value="VEGETARIAN" />
+                        Vegatarian</label>
+                    <br>
+                    <label for="allergy6">
+                        <input type="checkbox" name="allergy" id="allergy6" value="VEGAN" />
+                        Vegan</label>
+                    <br>
+                    <label for="allergy7">
+                        <input type="checkbox" name="allergy" id="allergy7" value="GLUTEN-FREE" />
+                        Gluten</label>
+                    <br>
+                    <label for="allergy8">
+                        <input type="checkbox" name="allergy" id="allergy8" value="ALCHOHOL-FREE" />
+                        Vegan</label>
+                    <br>
+
+                    <button class="buttons" id="submitAllergySelection">Submit</button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <br>
+        <h1 class="recipeHeader"><i class="em em-shallow_pan_of_food" aria-role="presentation" aria-label="SHALLOW PAN OF FOOD"></i> Recipes Based on Your Nutritional Needs: </h1>
+
         <h4>Show How Many Results?</h4>
         <h6>Acceptable values are between 1 and 50</h6>
         <input type="number" name="numberItems" id="numberItems" value="12" min="1" max="80">
     </div>
 
+    </div>
 
 
     <div id="ingcontent">
