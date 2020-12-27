@@ -158,20 +158,10 @@ async function sendRecipeApiRequest(query){
 
     
     let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}&to=${num_items}`
-    console.log(url)
-
-    // for(let i = 0; i < allergies.length; i++) {
-    //     url += "&Health=" + allergies[i]
-    // }
-
-    // url += "&mealtype=" + mealtype;
-
-    console.log(url)
+    console.log("recipe:  " + url)
 
     let response = await fetch(url);
-    // &diet=${userDiet}
     let data = await response.json()
-    console.log(data)
     useRecipeApiData(data)
 }
 
@@ -184,6 +174,8 @@ function useRecipeApiData(data){
     document.getElementById("rtitle").scrollIntoView();
     
     let ul = document.getElementById("content");
+    $("#content").empty();
+    console.log(ul)
     let li = null;
     let card = null;
     let img = null;
