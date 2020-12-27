@@ -32,52 +32,51 @@ $("#numberItems").change(() => {
 })
 
 let ingLink = document.getElementById('submitIngredients');
-ingLink.addEventListener("click", (e) => {
+$("#submitIngredients").click(function(e){
     e.preventDefault()
-    values = {
-        "fat": 0,
-        "fiber": 0,
-        "carbs": 0,
-        "cholesterol": 0,
-        "protein": 0,
-        "sodium": 0
-    };
     let ingString = document.getElementById("ingredientField").value;
     let ings = ingString.split(/\n/);
+    let splitIngs = []
     for(let i=0; i<ings.length; i++){
-        let splitIngs = []
         console.log(ings[i])
         ings[i].split(" ").forEach(element => splitIngs.push(element));
         let ingAppend = "&ingr=1";
+        console.log(splitIngs)
         for(let i=0; i<splitIngs.length; i++){
             ingAppend += "%20";
             ingAppend += String(splitIngs[i]);
         }
         
+        console.log(ingAppend)
+
         sendIngredientsApiRequest(ingAppend);
     }
+    console.log(values.fat)
+    useIngredientApiData(values)
 })
 
 async function sendIngredientsApiRequest(ingredients){
+
     let APP_ID = "904f282d"
     let API_KEY = "4b89602f05b17c72ede36c0d13e34c71"
     
     let url = `https://api.edamam.com/api/nutrition-data?app_id=${APP_ID}&app_key=${API_KEY}${ingredients}`;
 
     let response = await fetch(url);
-    console.log(response)
     let data = await response.json()
     incrementIngredientAPIData(data)
 }
 
 function incrementIngredientAPIData(data) {
-    values.fat += data.totalDaily.FAT.quantity,
-    values.fiber += data.totalDaily.FIBTG.quantity,
-    values.carbs += data.totalDaily.CHOCDF.quantity,
-    values.cholesterol += data.totalDaily.CHOLE.quantity,
-    values.protein += data.totalDaily.PROCNT.quantity,
-    values.sodium += data.totalDaily.NA.quantity,
+    values.fat += data.totalDaily.FAT.quantity
+    values.fiber += data.totalDaily.FIBTG.quantity
+    values.carbs += data.totalDaily.CHOCDF.quantity
+    values.cholesterol += data.totalDaily.CHOLE.quantity
+    values.protein += data.totalDaily.PROCNT.quantity
+    values.sodium += data.totalDaily.NA.quantity
+}
 
+function useIngredientApiData(data){
     keys = Object.keys(values);
     lowest = values[keys[0]];
     lowestKey = keys[0];
@@ -87,9 +86,7 @@ function incrementIngredientAPIData(data) {
             lowestKey = keys[i];
         }
     }
-}
-
-function useIngredientApiData(data){
+    console.log(data)
     sendRecipeApiRequest(lowestKey);
     let message = "Looks like you need some more " + lowestKey + "!";
 
@@ -97,28 +94,28 @@ function useIngredientApiData(data){
     document.querySelector("#ingcontent").innerHTML = `
         <h1 class="center">Nutrional Breakdown</h1>
         <div class="card-body-small">
-            <h5 class="card-title">${data.totalDaily.FAT.label}</h5>
-            <p class="card-text">${String(data.totalDaily.FAT.quantity).substring(0, 5)}% daily value</p>
+            <h5 class="card-title">Fat</h5>
+            <p class="card-text">${String(data.fat).substring(0, 5)}% daily value</p>
         </div>
         <div class="card-body-small">
-            <h5 class="card-title">${data.totalDaily.FIBTG.label}</h5>
-            <p class="card-text">${String(data.totalDaily.FIBTG.quantity).substring(0, 5)}% daily value</p>
+            <h5 class="card-title">Fiber</h5>
+            <p class="card-text">${String(data.fiber).substring(0, 5)}% daily value</p>
         </div>
         <div class="card-body-small">
-            <h5 class="card-title">${data.totalDaily.CHOCDF.label}</h5>
-            <p class="card-text">${String(data.totalDaily.CHOCDF.quantity).substring(0, 3)}% daily value</p>
+            <h5 class="card-title">Carbs</h5>
+            <p class="card-text">${String(data.carbs).substring(0, 3)}% daily value</p>
         </div>
         <div class="card-body-small">
-            <h5 class="card-title">${data.totalDaily.CHOLE.label}</h5>
-            <p class="card-text">${String(data.totalDaily.CHOLE.quantity).substring(0, 5)}% daily value</p>
+            <h5 class="card-title">Cholesterol</h5>
+            <p class="card-text">${String(data.cholesterol).substring(0, 5)}% daily value</p>
         </div>
         <div class="card-body-small">
-            <h5 class="card-title">${data.totalDaily.PROCNT.label}</h5>
-            <p class="card-text">${String(data.totalDaily.PROCNT.quantity).substring(0, 5)}% daily value</p>
+            <h5 class="card-title">Protein</h5>
+            <p class="card-text">${String(data.protein).substring(0, 5)}% daily value</p>
         </div>
         <div class="card-body-small">
-            <h5 class="card-title">${data.totalDaily.NA.label}</h5>
-            <p class="card-text">${String(data.totalDaily.NA.quantity).substring(0, 5)}% daily value</p>
+            <h5 class="card-title">Sodium</h5>
+            <p class="card-text">${String(data.sodium).substring(0, 5)}% daily value</p>
         </div>
         <br>
         <h4 id= "resultMessage">${message}</h4>
@@ -187,7 +184,7 @@ function useRecipeApiData(data){
     document.getElementById("rline").style["display"] = "block";
     document.getElementById("rtitle").style["display"] = "block";
 
-    document.getElementById("rtitle").scrollIntoView();
+    // document.getElementById("rtitle").scrollIntoView();
     
     let ul = document.getElementById("content");
     $("#content").empty();
