@@ -1,17 +1,3 @@
-let proteinItems = ["redMeats", "whiteMeats", "fish", "nuts"];
-let fruitItems = ["berries", "legumes", "drupes"];
-let vegetableItems = ["peppers", "cabbage", "potatoes"];
-let grainItems = ["bread", "pasta", "rice"];
-let dairyItems = ["milk", "cheese", "yogurt"];
-
-let foodGroups = {
-    "protein": proteinItems,
-    "grain": grainItems,
-    "dairy": dairyItems,
-    "vegetables": vegetableItems,
-    "fruits": fruitItems
-};
-
 let values = {
     "fat": 0,
     "fiber": 0,
@@ -24,6 +10,8 @@ let values = {
 let keys = null;
 let lowest = null;
 let lowestKey = null;
+let highest = null;
+let highestKey = null;
 
 let num_items = 12;
 
@@ -74,8 +62,8 @@ $("#submitIngredients").click((e) => {
 
 async function sendIngredientsApiRequest(ingredients){
 
-    let APP_ID = "1ae4f383"
-    let API_KEY = "c2eba80de1ec07a485975a6bd10bcc45"
+    let APP_ID = "2d284351"
+    let API_KEY = "113895aadcc040c744bd68d48a2dec19"
     
     let url = `https://api.edamam.com/api/nutrition-data?app_id=${APP_ID}&app_key=${API_KEY}${ingredients}`;
 
@@ -102,9 +90,37 @@ function useIngredientApiData(data){
             lowestKey = keys[i];
         }
     }
-    // console.log(data)
-    sendRecipeApiRequest(lowestKey);
-    let message = "Looks like you need some more " + lowestKey + "!";
+
+    highest = values[keys[0]];
+    highestKey = keys[0];
+    for(let i=0; i<keys.length; i++){
+        if(values[keys[i]] > highest){
+            highest = values[keys[i]];
+            highestKey = keys[i];
+        }
+    }
+
+    // Determine the query for the API
+    let q = lowestKey;
+    let message = (lowestKey.substring(0, 1).toUpperCase() + lowestKey.substring(1)) + " deficiency";
+
+    if(highestKey == "cholesterol") {
+        q = "cholesterol"
+        message = "High Cholesterol"
+    }
+    if(highestKey == "sodium") {
+        q = "sodium"
+        message= "High Sodium"
+    }
+    if(highestKey == "carb") {
+        q = "carb"
+        message = "High Carbs"
+    }
+
+
+
+    sendRecipeApiRequest(q);
+
 
     document.getElementById("ingcontent").style["display"] = "block";
     document.querySelector("#ingcontent").innerHTML = `
@@ -138,52 +154,10 @@ function useIngredientApiData(data){
     `
 }
 
-
-
-// let allergies = []
-
-
-// let allergyButton = document.getElementById("submitAllergySelection");
-
-// allergyButton.onclick = function () {
-//     allergies = [];
-
-//     for (i = 1; i < 9; i++) {
-
-//         if (document.getElementById(String("allergy" + i)).checked) {
-//             allergies.push((document.getElementById(String("allergy" + i)).value).toLowerCase());
-//         }
-//     }
-
-//     console.log("Allergies = " + allergies);
-//     return false;
-// }
-
-// //recipe search eventlistener
-// let searchButton = document.querySelector("#search")
-// searchButton.addEventListener("click", ()=>{
-//     let mealInp = []
-//     let groups = ["protein", "grain", "dairy", "vegetables", "fruits"]
-//     for (let i = 0; i < groups.length; i++) {
-//         for (let j = 1; j < 4; j++) {
-//             if (document.getElementById(String(groups[i]) + String(j)).checked) {
-//                 mealInp.push(document.getElementById(String(groups[i]) + String(j)).value);
-//             }
-//         }
-//     }
-//     let result = checkMissing(mealInp);
-//     if(result){
-//         sendRecipeApiRequest(result[0])
-//     }else{
-//         sendRecipeApiRequest("balanced")
-//     }
-    
-// })
-
 //recipe search api call
 async function sendRecipeApiRequest(query){
-    let APP_ID = "1016c633"
-    let API_KEY = "61c97ffd05bdd611d43c7135f175f69e"
+    let APP_ID = "21953171"
+    let API_KEY = "5c7211cc5a2425475adb7aad9566ed54"
 
     
     let url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${query}&to=${num_items}`
@@ -196,34 +170,29 @@ async function sendRecipeApiRequest(query){
 
 //recipe search content
 function useRecipeApiData(data){
-    console.log("fuck u js")
     document.getElementById("content").style["display"] = "block";
     document.getElementById("rline").style["display"] = "block";
     document.getElementById("rtitle").style["display"] = "block";
 
-    // document.getElementById("rtitle").scrollIntoView();
+    document.getElementById("rtitle").scrollIntoView();
     
     let ul = document.getElementById("content");
     $("#content").empty();
-    let li = null;
     let card = null;
     let img = null;
     let body = null;
     let title = null;
     let text1 = null;
-    let br = null;
     let text2 = null;
     let link = null;
-
     let healthlist = null;
 
     for(let i = 0; i < num_items; i++) {
-        li = document.createElement("li");
         card = document.createElement('div')
         card.setAttribute("class", "card");
-        // card.style["width"] = "18rem";
         img = document.createElement("img")
         img.setAttribute("src", data.hits[i].recipe.image);
+        img.setAttribute("alt", "Image unavailable");
         img.setAttribute("class", "cardImg");
         body = document.createElement("div")
         body.setAttribute("class", "card-body")
@@ -233,7 +202,6 @@ function useRecipeApiData(data){
         text1 = document.createElement("p")
         text1.setAttribute("class", "card-text")
         text1.innerHTML = "Source: " + String(data.hits[i].recipe.label.substring(0,20))
-        // br = document.createElement("br")
 
         if(data.hits[i].recipe.healthLabels.length > 0) {
             healthlist = document.createElement("ul")
@@ -269,39 +237,3 @@ function useRecipeApiData(data){
         ul.appendChild(card);
     }
 }
-
-//function takes in an array of items in meal and returns a string message with all the missing groups
-//need to fetch data from form and then take string output and display it
-function checkMissing(meal) {
-    //parameter meal is an array of all items in the meal
-    let groupCheck = {
-        "protein": false,
-        "fruits": false,
-        "vegetables": false,
-        "grain": false,
-        "dairy": false
-    }
-    keys = Object.keys(foodGroups);
-    for (let i = 0; i < keys.length; i++) {
-        for (let j = 0; j < meal.length; j++) {
-            if (foodGroups[keys[i]].includes(meal[j])) {
-                groupCheck[keys[i]] = true;
-            }
-        }
-    }
-
-    let result = []
-    for (let i = 0; i < keys.length; i++) {
-        if (groupCheck[keys[i]] == false) {
-            result.push(keys[i]);
-        }
-    }
-    return result;
-}
-
-
-
-//let mealEx = ["Meat", "Pepper", "Bread", "Milk", "Cheese"];
-//console.log(checkMissing(mealEx));
-
-//console.log(document.getElementById("mealSelector"));
