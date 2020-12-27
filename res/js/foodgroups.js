@@ -123,39 +123,6 @@ myLink.onclick = function () {
     return false;
 }
 
-let allergies = []
-
-
-let allergyButton = document.getElementById("submitAllergySelection");
-
-allergyButton.onclick = function () {
-    allergies = [];
-
-    for (i = 1; i < 9; i++) {
-
-        if (document.getElementById(String("allergy" + i)).checked) {
-            allergies.push((document.getElementById(String("allergy" + i)).value).toLowerCase());
-        }
-    }
-
-    console.log("Allergies = " + allergies);
-    return false;
-}
-
-let mealtype = "Lunch";
-let mealtypeButton = document.getElementById("mealTypeButton")
-
-
-mealtypeButton.onclick = function () {
-    for (i = 1; i < 4; i++) {
-        if (document.getElementById(String("meal" + i)).checked) {
-            mealtype = document.getElementById(String("meal" + i)).value
-        }
-    }
-    console.log(mealtype)
-    return false;
-}
-
 
 
 

@@ -1,8 +1,27 @@
 let searchButton = document.querySelector("#search")
 let userDiet = "high-protein"
+let allergies = []
+let mealtype = "Lunch";
 
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
 searchButton.addEventListener("click", ()=>{
+    allergies = [];
+
+    for (i = 1; i < 9; i++) {
+
+        if (document.getElementById(String("allergy" + i)).checked) {
+            allergies.push((document.getElementById(String("allergy" + i)).value).toLowerCase());
+        }
+    }
+
+    console.log("Allergies = " + allergies);
+
+    for (i = 1; i < 4; i++) {
+        if (document.getElementById(String("meal" + i)).checked) {
+            mealtype = document.getElementById(String("meal" + i)).value
+        }
+    }
+    console.log(mealtype)
     console.log(getDiet(score));
     sendApiRequest()
 })
