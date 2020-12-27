@@ -79,6 +79,7 @@ function useIngredientApiData(data){
 
     document.getElementById("ingcontent").style["display"] = "block";
     document.querySelector("#ingcontent").innerHTML = `
+        <h1 class="center">Nutrional Breakdown</h1>
         <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.FAT.label}</h5>
             <p class="card-text">${String(data.totalDaily.FAT.quantity).substring(0, 5)}% daily value</p>

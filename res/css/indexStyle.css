@@ -213,6 +213,10 @@ footer {
     text-align: center;
 }
 
+.center {
+    text-align: center;
+}
+
 
 #ingcontent {
     display: inline-flexbox;
