@@ -238,7 +238,9 @@ function useRecipeApiData(data){
         link.innerHTML = "Check it Out";
         body.appendChild(title);
         body.appendChild(text1);
-        body.appendChild(healthlist);
+        if(data.hits[i].recipe.healthLabels.length > 0) {
+            body.appendChild(healthlist);
+        }
         body.appendChild(text2);
         body.appendChild(link);
         card.appendChild(img)
