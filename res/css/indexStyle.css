@@ -59,6 +59,10 @@ body {
 #centralArea {
 }
 
+.card-body {
+    display: inline-block;
+    width: 500px;
+}
 
 
 #allergySelector {
