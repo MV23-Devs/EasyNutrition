@@ -315,7 +315,6 @@ footer {
   #content {
       width: 95%;
       margin: 2.5%;
-      margin-top: 10%;
       /* display: flex !important; */
         display: ruby-flexbox !important;
         padding: 10px !;
