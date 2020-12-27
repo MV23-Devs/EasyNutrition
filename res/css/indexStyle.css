@@ -144,12 +144,17 @@ footer {
 
 .card {
     display: inline-block !important;
-    width: calc(25% - 6px) !important;
-    min-height: 500px !important;
-    max-height: 500px !important;
+    width: calc(25% - 10px) !important;
+    min-height: 700px !important;
+    max-height: 700px !important;
     margin-bottom: 5px;
 
 }
+
+.cardImg {
+    width: 100%;
+}
+
 
 
 .card-body {
@@ -277,8 +282,8 @@ footer {
   }
 
   #content {
-      width: 90%;
-      margin: 5%;
+      width: 95%;
+      margin: 2.5%;
       margin-top: 10%;
       /* display: flex !important; */
         display: ruby-flexbox !important;

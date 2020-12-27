@@ -203,10 +203,10 @@ function useRecipeApiData(data){
         body.setAttribute("class", "card-body")
         title = document.createElement("h5")
         title.setAttribute("class", "card-title")
-        title.innerHTML = data.hits[i].recipe.label.substring(0,30)
+        title.innerHTML = data.hits[i].recipe.label.substring(0, 25)
         text1 = document.createElement("p")
         text1.setAttribute("class", "card-text")
-        text1.innerHTML = "Source: " + String(data.hits[i].recipe.label.substring(0,30))
+        text1.innerHTML = "Source: " + String(data.hits[i].recipe.label.substring(0,20))
         // br = document.createElement("br")
 
         if(data.hits[i].recipe.healthLabels.length > 0) {
