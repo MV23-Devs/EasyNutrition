@@ -45,6 +45,12 @@ body {
     display: inline-block;
 }
 
+/* 
+#bigImage {
+    height: 50%;
+} */
+
+
 .overImage {
     color: white;
     text-shadow: 0px 0px 10px #000000;
