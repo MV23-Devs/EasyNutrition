@@ -78,31 +78,32 @@ function useIngredientApiData(data){
 
     document.getElementById("ingcontent").style["display"] = "block";
     document.querySelector("#ingcontent").innerHTML = `
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.FAT.label}</h5>
             <p class="card-text">${String(data.totalDaily.FAT.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.FIBTG.label}</h5>
             <p class="card-text">${String(data.totalDaily.FIBTG.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.CHOCDF.label}</h5>
             <p class="card-text">${String(data.totalDaily.CHOCDF.quantity).substring(0, 3)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.CHOLE.label}</h5>
             <p class="card-text">${String(data.totalDaily.CHOLE.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.PROCNT.label}</h5>
             <p class="card-text">${String(data.totalDaily.PROCNT.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <div class="card-body">
+        <div class="card-body-small">
             <h5 class="card-title">${data.totalDaily.NA.label}</h5>
             <p class="card-text">${String(data.totalDaily.NA.quantity).substring(0, 5)}% daily value</p>
         </div>
-        <h4>${message}</h4>
+        <br>
+        <h4 id= "resultMessage">${message}</h4>
     `
 }
 
@@ -189,7 +190,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[0].recipe.label.substring(0, 30)}</h5>
+            <h5 class="card-title">${data.hits[0].recipe.label.substring(0, 25)}</h5>
             <p class="card-text">Source: ${data.hits[0].recipe.source} <br>${data.hits[0].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[0].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -197,7 +198,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[1].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[1].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[1].recipe.label.substring(0, 25)}...</h5>
             <p class="card-text">Source: ${data.hits[1].recipe.source}<br> ${data.hits[1].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[1].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -205,7 +206,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[2].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[2].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[2].recipe.label.substring(0,25)}...</h5>
             <p class="card-text">Source: ${data.hits[2].recipe.source}<br> ${data.hits[2].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[2].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -213,7 +214,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[3].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[3].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[3].recipe.label.substring(0,25)}...</h5>
             <p class="card-text">Source: ${data.hits[3].recipe.source} <br>${data.hits[3].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[3].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -221,7 +222,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[4].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[4].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[4].recipe.label.substring(0,25)}...</h5>
             <p class="card-text">Source: ${data.hits[4].recipe.source} <br>${data.hits[4].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[4].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -229,7 +230,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[5].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[5].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[5].recipe.label.substring(0,25)}...</h5>
             <p class="card-text">Source: ${data.hits[5].recipe.source} <br>${data.hits[5].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[5].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -237,7 +238,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[6].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[6].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[6].recipe.label.substring(0,25)}...</h5>
             <p class="card-text">Source: ${data.hits[6].recipe.source} <br>${data.hits[6].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[6].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -245,7 +246,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[7].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[7].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[7].recipe.label.substring(0,25)}...</h5>
             <p class="card-text">Source: ${data.hits[7].recipe.source}<br> ${data.hits[7].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[7].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -253,7 +254,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[8].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[8].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[8].recipe.label.substring(0,25)}...</h5>
             <p class="card-text">Source: ${data.hits[8].recipe.source} <br>${data.hits[8].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[8].recipe.url}" class="btn btn-primary">Check it Out!</a>
         </div>
@@ -261,7 +262,7 @@ function useRecipeApiData(data){
     <div class="card" style="width: 18rem;">
         <img src="${data.hits[9].recipe.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${data.hits[9].recipe.label.substring(0,30)}...</h5>
+            <h5 class="card-title">${data.hits[9].recipe.label.substring(0,25)}...</h5>
             
             <p class="card-text">Source: ${data.hits[9].recipe.source} <br> ${data.hits[9].recipe.calories.toString().substring(0, 3)} calories</p>
             <a href="${data.hits[9].recipe.url}" class="btn btn-primary">Check it Out!</a>
