@@ -20,8 +20,11 @@ let score = {
     "fruits": 0
 };
 
+
+
 let ingLink = document.getElementById('submitIngredients');
-ingLink.addEventListener("click", () => {
+ingLink.addEventListener("click", (e) => {
+    e.preventDefault()
     let ingString = document.getElementById("ingredientField").value;
     let ings = ingString.split(/\n/);
     let splitIngs = []
