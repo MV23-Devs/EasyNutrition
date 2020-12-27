@@ -126,8 +126,6 @@ allergyButton.onclick = function () {
 
 let mealtype = "Lunch";
 let mealtypeButton = document.getElementById("mealTypeButton")
-
-
 mealtypeButton.onclick = function () {
     for (i = 1; i < 4; i++) {
         if (document.getElementById(String("meal" + i)).checked) {
@@ -138,26 +136,26 @@ mealtypeButton.onclick = function () {
     return false;
 }
 
-//recipe search eventlistener
-let searchButton = document.querySelector("#search")
-searchButton.addEventListener("click", ()=>{
-    let mealInp = []
-    let groups = ["protein", "grain", "dairy", "vegetables", "fruits"]
-    for (let i = 0; i < groups.length; i++) {
-        for (let j = 1; j < 4; j++) {
-            if (document.getElementById(String(groups[i]) + String(j)).checked) {
-                mealInp.push(document.getElementById(String(groups[i]) + String(j)).value);
-            }
-        }
-    }
-    let result = checkMissing(mealInp);
-    if(result){
-        sendRecipeApiRequest(result[0])
-    }else{
-        sendRecipeApiRequest("balanced")
-    }
+// //recipe search eventlistener
+// let searchButton = document.querySelector("#search")
+// searchButton.addEventListener("click", ()=>{
+//     let mealInp = []
+//     let groups = ["protein", "grain", "dairy", "vegetables", "fruits"]
+//     for (let i = 0; i < groups.length; i++) {
+//         for (let j = 1; j < 4; j++) {
+//             if (document.getElementById(String(groups[i]) + String(j)).checked) {
+//                 mealInp.push(document.getElementById(String(groups[i]) + String(j)).value);
+//             }
+//         }
+//     }
+//     let result = checkMissing(mealInp);
+//     if(result){
+//         sendRecipeApiRequest(result[0])
+//     }else{
+//         sendRecipeApiRequest("balanced")
+//     }
     
-})
+// })
 
 //recipe search api call
 async function sendRecipeApiRequest(query){
