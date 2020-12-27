@@ -37,7 +37,6 @@ ingLink.addEventListener("click", (e) => {
         ingAppend += "%20";
         ingAppend += String(splitIngs[i]);
     }
-    console.log(ingAppend)
     sendIngredientsApiRequest(ingAppend);
 })
 
@@ -48,9 +47,7 @@ async function sendIngredientsApiRequest(ingredients){
     let url = `https://api.edamam.com/api/nutrition-data?app_id=${APP_ID}&app_key=${API_KEY}${ingredients}`;
 
     let response = await fetch(url);
-    // &diet=${userDiet}
     let data = await response.json()
-    console.log(data)
     useIngredientApiData(data)
 }
 
@@ -179,6 +176,7 @@ async function sendRecipeApiRequest(query){
     let response = await fetch(url);
     // &diet=${userDiet}
     let data = await response.json()
+    console.log(data)
     useRecipeApiData(data)
 }
 
@@ -187,7 +185,7 @@ function useRecipeApiData(data){
     document.getElementById("content").style["display"] = "block";
     document.querySelector("#content").innerHTML = `
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[0].recipe.label.substring(0, 30)}</h5>
             <p class="card-text">Source: ${data.hits[0].recipe.source} <br>${data.hits[0].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -195,7 +193,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[1].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[1].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[1].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[1].recipe.source}<br> ${data.hits[1].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -203,7 +201,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[2].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[2].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[2].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[2].recipe.source}<br> ${data.hits[2].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -211,7 +209,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[3].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[3].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[3].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[3].recipe.source} <br>${data.hits[3].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -219,7 +217,7 @@ function useRecipeApiData(data){
         </div>
     </div> 
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[4].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[4].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[4].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[4].recipe.source} <br>${data.hits[4].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -227,7 +225,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[5].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[5].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[5].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[5].recipe.source} <br>${data.hits[5].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -235,7 +233,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[6].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[6].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[6].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[6].recipe.source} <br>${data.hits[6].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -243,7 +241,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[7].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[7].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[7].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[7].recipe.source}<br> ${data.hits[7].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -251,7 +249,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[8].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[8].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[8].recipe.label.substring(0,30)}...</h5>
             <p class="card-text">Source: ${data.hits[8].recipe.source} <br>${data.hits[8].recipe.calories.toString().substring(0, 3)} calories</p>
@@ -259,7 +257,7 @@ function useRecipeApiData(data){
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="${data.hits[9].recipe.image}" class="card-img-top" alt="...">
+        <img src="${data.hits[9].recipe.image}" class="card-img-top" alt="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg">
         <div class="card-body">
             <h5 class="card-title">${data.hits[9].recipe.label.substring(0,30)}...</h5>
             
@@ -268,6 +266,8 @@ function useRecipeApiData(data){
         </div>
     </div>
 `
+    $("#feed")
+
 }
 
 //function takes in an array of items in meal and returns a string message with all the missing groups
